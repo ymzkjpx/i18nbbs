@@ -1,7 +1,8 @@
 plugins {
+    id 'java'
     id 'org.springframework.boot' version '2.5.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+    id 'org.dddjava.jig-gradle-plugin' version '2021.9.2'
 }
 
 group = 'ex'
@@ -14,6 +15,17 @@ configurations {
     }
 }
 
+sourceSets {
+    main {
+        resources.srcDirs = ["src/main/java", "src/main/resources"]
+    }
+}
+
+wrapper {
+    gradleVersion = '6.9'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
+
 repositories {
     mavenCentral()
 }
@@ -23,12 +35,23 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'com.h2database:h2'
-    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('com.github.irof:jig-erd:latest.release')
+    implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2")
+    runtimeOnly 'com.h2database:h2'
+    runtimeOnly("org.flywaydb:flyway-core")
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group: 'org.junit.vintage')
+    }
 }
+
+jig {
+    linkPrefix = "https://github.com/system-sekkei/library/tree/master/src/main/java"
+}
+
+[compileJava, processResources]*.shouldRunAfter(clean)
+jigReports.dependsOn(clean, classes)
 
 test {
     useJUnitPlatform()

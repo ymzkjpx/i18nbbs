@@ -1,4 +1,4 @@
-package ex.i18n;
+package ex.i18nbbs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
