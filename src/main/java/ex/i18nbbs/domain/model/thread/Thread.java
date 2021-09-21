@@ -1,30 +1,28 @@
 package ex.i18nbbs.domain.model.thread;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ex.i18nbbs.domain.model.response.Response;
+import ex.i18nbbs.domain.model.response.Responses;
 import ex.i18nbbs.domain.model.thread.title.ThreTi;
 
 /**
  * スレッド
  */
 public class Thread {
-    ThreadSize threadSize = ThreadSize.medium();
+    ThreadNumber threadNumber;
+    ResponsePerThread threadSize = ResponsePerThread.medium();
     ThreTi threTi;
-    List<Response> list = new ArrayList<>();
+    Responses responses;
 
     @Deprecated
     Thread(){}
 
-    public Thread(ThreTi threTi, List<Response> list) {
+    public Thread(ThreTi threTi, Responses responses) {
         this.threTi = threTi;
-        this.list = list;
+        this.responses = responses;
     }
 
-    public Thread(ThreadSize threadSize, ThreTi threTi, List<Response> list) {
+    public Thread(ResponsePerThread threadSize, ThreTi threTi, Responses responses) {
         this.threadSize = threadSize;
         this.threTi = threTi;
-        this.list = list;
+        this.responses = responses;
     }
 }

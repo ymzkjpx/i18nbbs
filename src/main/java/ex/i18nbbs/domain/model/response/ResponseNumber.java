@@ -4,18 +4,13 @@ package ex.i18nbbs.domain.model.response;
  * 返信のID
  */
 public class ResponseNumber {
-    String value;
+    int value;
 
     @Deprecated
     ResponseNumber(){}
 
-    private ResponseNumber(String value) {
+    private ResponseNumber(int value) {
         this.value = value;
-    }
-
-    public static ResponseNumber nextNumber(){
-        String uuidText = ResponseNumberManager.nextNumber();
-        return new ResponseNumber(uuidText);
     }
 
     @Override
