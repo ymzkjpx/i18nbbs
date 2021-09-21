@@ -1,5 +1,8 @@
 package ex.i18nbbs.domain.model.response.original;
 
+/**
+ * 返信文章のID
+ */
 public class OriginalNumber {
     String value;
 

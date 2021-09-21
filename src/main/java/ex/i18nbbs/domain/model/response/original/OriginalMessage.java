@@ -1,5 +1,8 @@
 package ex.i18nbbs.domain.model.response.original;
 
+/**
+ * 返信文章の文字列(投稿時点)
+ */
 public class OriginalMessage {
    String value;
 

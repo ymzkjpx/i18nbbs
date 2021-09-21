@@ -1,5 +1,8 @@
 package ex.i18nbbs.domain.model.response.original;
 
+/**
+ * 返信文章(投稿時点)
+ */
 public class Original {
     OriginalNumber originalNumber = OriginalNumber.nextNumber();
     OriginalMessage originalMessage = OriginalMessage.empty();
@@ -20,7 +23,7 @@ public class Original {
         return originalMessage;
     }
 
-    public Original refreshNumber(Original other){
+    public static Original refreshNumber(Original other){
         OriginalNumber originalNumber = OriginalNumber.nextNumber();
         return new Original(originalNumber, other.originalMessage());
     }
