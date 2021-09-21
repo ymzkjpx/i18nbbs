@@ -1,0 +1,35 @@
+package ex.i18nbbs.domain.model.response.original;
+
+public class Original {
+    OriginalNumber originalNumber = OriginalNumber.nextNumber();
+    OriginalMessage originalMessage = OriginalMessage.empty();
+
+    @Deprecated
+    Original(){}
+
+    public Original(OriginalNumber originalNumber, OriginalMessage originalMessage) {
+        this.originalNumber = originalNumber;
+        this.originalMessage = originalMessage;
+    }
+
+    public OriginalNumber showOriginalNumber(){
+        return originalNumber;
+    }
+
+    public OriginalMessage originalMessage() {
+        return originalMessage;
+    }
+
+    public Original refreshNumber(Original other){
+        OriginalNumber originalNumber = OriginalNumber.nextNumber();
+        return new Original(originalNumber, other.originalMessage());
+    }
+
+    @Override
+    public String toString() {
+        return "Original{" +
+                "originalNumber=" + originalNumber +
+                ", originalMessage=" + originalMessage +
+                '}';
+    }
+}
