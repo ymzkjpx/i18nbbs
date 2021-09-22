@@ -47,7 +47,7 @@ dependencies {
 }
 
 jig {
-    linkPrefix = "https://github.com/system-sekkei/library/tree/master/src/main/java"
+    linkPrefix = "https://github.com/ymzkjpx/i18nbbs/"
 }
 
 [compileJava, processResources]*.shouldRunAfter(clean)
