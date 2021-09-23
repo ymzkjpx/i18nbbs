@@ -21,10 +21,6 @@ public class OriginalMessage {
        return new OriginalMessage("");
     }
 
-    public static String em(){
-       return "";
-    }
-
     @Override
     public String toString() {
         return "OriginalMessage{" +

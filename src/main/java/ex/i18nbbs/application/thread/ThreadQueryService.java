@@ -9,6 +9,10 @@ import ex.i18nbbs.domain.model.thread.ThreadNumber;
 public class ThreadQueryService {
     ThreadRepository threadRepository;
 
+    public ThreadQueryService(ThreadRepository threadRepository) {
+        this.threadRepository = threadRepository;
+    }
+
     public Thread findByThreadNumber(ThreadNumber threadNumber){
         return threadRepository.findByThreadNumber(threadNumber);
     }

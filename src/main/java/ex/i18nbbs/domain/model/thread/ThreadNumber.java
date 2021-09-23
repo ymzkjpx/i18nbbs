@@ -13,6 +13,10 @@ public class ThreadNumber {
         this.value = value;
     }
 
+    public ThreadNumber(String value){
+        this.value = Integer.parseInt(value);
+    }
+
     public int value() {
         return value;
     }

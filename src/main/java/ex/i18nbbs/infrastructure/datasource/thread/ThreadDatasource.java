@@ -22,10 +22,9 @@ public class ThreadDatasource implements ThreadRepository {
 
     @Override
     public Thread findByThreadNumber(ThreadNumber threadNumber) {
-        // ThreadNumberからList<Response>を取得
         List<Response> responsesList = threadMapper.findResponseList(threadNumber);
         Responses responses = new Responses(responsesList);
-        ThreadTitle threadTitle = threadMapper.findThreTi(threadNumber);
+        ThreadTitle threadTitle = threadMapper.findThreadTitle(threadNumber);
         return new Thread(threadTitle, responses);
     }
 }

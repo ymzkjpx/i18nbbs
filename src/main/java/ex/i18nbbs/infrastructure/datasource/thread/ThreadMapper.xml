@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ex.i18nbbs.infrastructure.datasource.thread.ThreadMapper">
+    <select id="findResponseList" resultType="ex.i18nbbs.domain.model.response.Response">
+        SELECT
+            r.response_id AS "responseNumber.value"
+          , 10 AS "responseOrder.value"
+          , om.id AS "original.originalNumber.value"
+          , om.message AS "original.originalMessage.value"
+        FROM
+            chat.response r
+                INNER JOIN chat.original_message om
+                    ON (r.original_message_id = om.id)
+        WHERE
+            thread_id = #{threadNumber.value}
+    </select>
+    <select id="findThreadTitle" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTitle">
+
+    </select>
+</mapper>

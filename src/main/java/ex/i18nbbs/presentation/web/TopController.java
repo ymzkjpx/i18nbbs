@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TopController {
     @GetMapping
     String index(){
-        return "redirect/thread/1";
+        return "redirect:thread/1";
     }
 }
