@@ -1,4 +1,4 @@
-package ex.i18nbbs.infrastructure.thread;
+package ex.i18nbbs.infrastructure.datasource.thread;
 
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,7 @@ import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.response.Responses;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
-import ex.i18nbbs.domain.model.thread.title.ThreTi;
+import ex.i18nbbs.domain.model.thread.title.ThreadTitle;
 
 @Repository
 public class ThreadDatasource implements ThreadRepository {
@@ -25,7 +25,7 @@ public class ThreadDatasource implements ThreadRepository {
         // ThreadNumberからList<Response>を取得
         List<Response> responsesList = threadMapper.findResponseList(threadNumber);
         Responses responses = new Responses(responsesList);
-        ThreTi threTi = threadMapper.findThreTi(threadNumber);
-        return new Thread(threTi, responses);
+        ThreadTitle threadTitle = threadMapper.findThreTi(threadNumber);
+        return new Thread(threadTitle, responses);
     }
 }

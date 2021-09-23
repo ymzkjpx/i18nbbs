@@ -7,15 +7,15 @@ import ex.i18nbbs.domain.model.response.original.Original;
  */
 public class Response {
     ResponseNumber responseNumber;
-    ResOrder resOrder;
+    ResponseOrder responseOrder;
     Original original;
 
     @Deprecated
     Response(){}
 
-    public Response(ResponseNumber responseNumber, ResOrder resOrder, Original original) {
+    public Response(ResponseNumber responseNumber, ResponseOrder responseOrder, Original original) {
         this.responseNumber = responseNumber;
-        this.resOrder = resOrder;
+        this.responseOrder = responseOrder;
         this.original = original;
     }
 
@@ -23,8 +23,8 @@ public class Response {
         return responseNumber;
     }
 
-    public ResOrder resOrder() {
-        return resOrder;
+    public ResponseOrder resOrder() {
+        return responseOrder;
     }
 
     public Original original() {
@@ -33,7 +33,7 @@ public class Response {
 
     public Response refreshOriginalNumber(Response other){
         Original originalResult = Original.refreshNumber(other.original);
-        return new Response(this.responseNumber, this.resOrder, originalResult);
+        return new Response(this.responseNumber, this.responseOrder, originalResult);
     }
 
     @Override

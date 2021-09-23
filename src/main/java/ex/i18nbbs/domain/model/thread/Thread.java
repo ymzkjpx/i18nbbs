@@ -1,7 +1,7 @@
 package ex.i18nbbs.domain.model.thread;
 
 import ex.i18nbbs.domain.model.response.Responses;
-import ex.i18nbbs.domain.model.thread.title.ThreTi;
+import ex.i18nbbs.domain.model.thread.title.ThreadTitle;
 
 /**
  * スレッド
@@ -9,20 +9,20 @@ import ex.i18nbbs.domain.model.thread.title.ThreTi;
 public class Thread {
     ThreadNumber threadNumber;
     ResponsePerThread threadSize = ResponsePerThread.medium();
-    ThreTi threTi;
+    ThreadTitle threadTitle;
     Responses responses;
 
     @Deprecated
     Thread(){}
 
-    public Thread(ThreTi threTi, Responses responses) {
-        this.threTi = threTi;
+    public Thread(ThreadTitle threadTitle, Responses responses) {
+        this.threadTitle = threadTitle;
         this.responses = responses;
     }
 
-    public Thread(ResponsePerThread threadSize, ThreTi threTi, Responses responses) {
+    public Thread(ResponsePerThread threadSize, ThreadTitle threadTitle, Responses responses) {
         this.threadSize = threadSize;
-        this.threTi = threTi;
+        this.threadTitle = threadTitle;
         this.responses = responses;
     }
 }

@@ -1,23 +1,9 @@
 package ex.i18nbbs.domain.model.thread.title;
 
 /**
- * 1コメのタイトル
+ * スレッドの1コメ
  */
 public class ThreadTitle {
-    String value;
-    @Deprecated
-    ThreadTitle(){}
-
-    public ThreadTitle(String value) {
-        this.value = value;
-    }
-
-    public String show() {
-        return toString();
-    }
-
-    @Override
-    public String toString() {
-        return value;
-    }
+    ThreadFirstComment threadFirstComment;
+    ThreadTitleOwner threadTitleOwner;
 }

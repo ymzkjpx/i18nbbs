@@ -3,13 +3,13 @@ package ex.i18nbbs.domain.model.response;
 /**
  * 1から始まるスレッド内の投稿順数
  */
-public class ResOrder {
+public class ResponseOrder {
     int value;
 
     @Deprecated
-    private ResOrder(){}
+    private ResponseOrder(){}
 
-    private ResOrder(int value) {
+    private ResponseOrder(int value) {
         this.value = value;
     }
 
@@ -17,8 +17,8 @@ public class ResOrder {
         return value;
     }
 
-    public static ResOrder first(){
-        return new ResOrder(1);
+    public static ResponseOrder first(){
+        return new ResponseOrder(1);
     }
 
     @Override
