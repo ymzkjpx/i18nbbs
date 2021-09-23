@@ -15,6 +15,12 @@
             thread_id = #{threadNumber.value}
     </select>
     <select id="findThreadTitle" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTitle">
-
+        SELECT
+            tt.title AS "threadFirstComment.value"
+          , 'Alice' AS "threadTitleOwner.value"
+        FROM
+            chat.thread_title tt
+        WHERE
+            tt.thread_id = #{threadNumber.value}
     </select>
 </mapper>

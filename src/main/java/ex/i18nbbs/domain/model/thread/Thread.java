@@ -15,6 +15,12 @@ public class Thread {
     @Deprecated
     Thread(){}
 
+    public Thread(ThreadNumber threadNumber, ThreadTitle threadTitle, Responses responses) {
+        this.threadNumber = threadNumber;
+        this.threadTitle = threadTitle;
+        this.responses = responses;
+    }
+
     public Thread(ThreadTitle threadTitle, Responses responses) {
         this.threadTitle = threadTitle;
         this.responses = responses;
