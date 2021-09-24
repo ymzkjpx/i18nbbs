@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ex.i18nbbs.infrastructure.datasource.thread.ThreadMapper">
-    <select id="findResponseList" resultType="ex.i18nbbs.domain.model.response.Response">
+    <resultMap id="findThread" type="ex.i18nbbs.domain.model.thread.Thread">
+        <id property="threadNumber.value" column="threadNumber.value"/>
+        <association property="threadTitle" javaType="ex.i18nbbs.domain.model.thread.title.ThreadTitle"
+                     select="findThreadTitle" column="threadNumber.value">
+            <result property="threadFirstComment.value" column="threadFirstComment.value"/>
+            <result property="threadTitleOwner.value" column="threadTitleOwner.value"/>
+        </association>
+        <collection property="responses.list" ofType="ex.i18nbbs.domain.model.response.Response">
+            <result property="responseNumber.value" column="responseNumber.value"/>
+            <result property="responseOrder.value" column="responseOrder.value"/>
+            <result property="original.originalNumber.value" column="original.originalNumber.value"/>
+            <result property="original.originalMessage.value" column="original.originalMessage.value"/>
+        </collection>
+    </resultMap>
+
+    <select id="findThread" resultMap="findThread">
         SELECT
-            r.response_id AS "responseNumber.value"
+            r.thread_id AS "threadNumber.value"
+          , r.response_id AS "responseNumber.value"
           , 10 AS "responseOrder.value"
           , om.id AS "original.originalNumber.value"
           , om.message AS "original.originalMessage.value"
@@ -14,6 +30,22 @@
         WHERE
             thread_id = #{threadNumber.value}
     </select>
+
+    <select id="findResponseList" resultType="ex.i18nbbs.domain.model.response.Response">
+        SELECT
+            r.thread_id AS "threadNumber.value"
+          , r.response_id AS "responseNumber.value"
+          , 10 AS "responseOrder.value"
+          , om.id AS "original.originalNumber.value"
+          , om.message AS "original.originalMessage.value"
+        FROM
+            chat.response r
+                INNER JOIN chat.original_message om
+                    ON (r.original_message_id = om.id)
+        WHERE
+            thread_id = #{threadNumber.value}
+    </select>
+
     <select id="findThreadTitle" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTitle">
         SELECT
             tt.title AS "threadFirstComment.value"
