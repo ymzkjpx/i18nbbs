@@ -3,13 +3,17 @@
 <mapper namespace="ex.i18nbbs.infrastructure.datasource.thread.ThreadMapper">
 
 
-    <select id="findOne" resultType="ex.i18nbbs.domain.model.thread.title.NumberOfThreadTitles">
+    <select id="findOne" resultType="ex.i18nbbs.domain.model.thread.Thread">
         SELECT
-            COUNT(tt.title) AS "value"
+            t.thread_id AS "threadNumber.value"
+          , tt.title AS "threadTitle.threadFirstCommnet.value"
+          , 'Alice' AS "threadTitleOwner.value"
         FROM
-            chat.thread_title tt
+            chat.thread t
+                INNER JOIN chat.thread_title tt
+                    ON t.thread_id = tt.thread_id
         WHERE
-            tt.thread_id = #{threadNumber.value}
+            t.thread_id = #{threadNumber.value}
     </select>
 
     <resultMap id="findThread" type="ex.i18nbbs.domain.model.thread.Thread">
