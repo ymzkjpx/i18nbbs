@@ -3,13 +3,13 @@ package ex.i18nbbs.domain.model.thread.title;
 /**
  * スレタイ作成者の名前
  */
-public class ThreadTitleOwner {
+public class ThreadOwner {
     String value;
 
     @Deprecated
-    ThreadTitleOwner(){}
+    ThreadOwner(){}
 
-    ThreadTitleOwner(String value) {
+    ThreadOwner(String value) {
         this.value = value;
     }
 
@@ -23,7 +23,7 @@ public class ThreadTitleOwner {
 
     @Override
     public String toString() {
-        return "ThreadTitleOwner{" +
+        return "ThreadOwner{" +
                 "value='" + value + '\'' +
                 '}';
     }

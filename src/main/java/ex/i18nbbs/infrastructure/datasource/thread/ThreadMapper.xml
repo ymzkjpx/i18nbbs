@@ -18,10 +18,10 @@
 
     <resultMap id="findThread" type="ex.i18nbbs.domain.model.thread.Thread">
         <id property="threadNumber.value" column="threadNumber.value"/>
-        <association property="threadTitle" javaType="ex.i18nbbs.domain.model.thread.title.ThreadTitle"
-                     select="findThreadTitle" column="threadNumber.value">
-            <result property="threadFirstComment.value" column="threadFirstComment.value"/>
-            <result property="threadTitleOwner.value" column="threadTitleOwner.value"/>
+        <association property="threadTheme" javaType="ex.i18nbbs.domain.model.thread.title.ThreadTheme"
+                     select="findThreadTheme" column="threadNumber.value">
+            <result property="threadTitle.value" column="threadTitle.value"/>
+            <result property="threadOwner.value" column="threadOwner.value"/>
         </association>
         <collection property="responses.list" ofType="ex.i18nbbs.domain.model.response.Response">
             <result property="responseNumber.value" column="responseNumber.value"/>
@@ -46,10 +46,10 @@
             thread_id = #{threadNumber.value}
     </select>
 
-    <select id="findThreadTitle" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTitle">
+    <select id="findThreadTheme" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTheme">
         SELECT
-            tt.title AS "threadFirstComment.value"
-          , 'Alice' AS "threadTitleOwner.value"
+            tt.title AS "threadTitle.value"
+          , 'Alice' AS "threadOwner.value"
         FROM
             chat.thread_title tt
         WHERE

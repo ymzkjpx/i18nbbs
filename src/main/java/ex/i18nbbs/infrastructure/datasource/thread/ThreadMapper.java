@@ -5,11 +5,11 @@ import org.apache.ibatis.annotations.Param;
 
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
-import ex.i18nbbs.domain.model.thread.title.ThreadTitle;
+import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
 
 @Mapper
 public interface ThreadMapper {
     Thread findOne(@Param("threadNumber") ThreadNumber threadNumber);
     Thread findThread(@Param("threadNumber") ThreadNumber threadNumber);
-    ThreadTitle findThreadTitle(@Param("threadNumber") ThreadNumber threadNumber);
+    ThreadTheme findThreadTheme(@Param("threadNumber") ThreadNumber threadNumber);
 }

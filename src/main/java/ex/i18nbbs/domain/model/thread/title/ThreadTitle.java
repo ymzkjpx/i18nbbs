@@ -1,25 +1,28 @@
 package ex.i18nbbs.domain.model.thread.title;
 
 /**
- * スレッドの1コメ
+ * 1コメのタイトル
  */
 public class ThreadTitle {
-    ThreadFirstComment threadFirstComment = new ThreadFirstComment("");
-    ThreadTitleOwner threadTitleOwner = new ThreadTitleOwner("");
+    String value;
+    @Deprecated
+    ThreadTitle(){}
 
-    public ThreadTitle(){}
-
-    public ThreadTitle(ThreadFirstComment threadFirstComment, ThreadTitleOwner threadTitleOwner) {
-        this.threadFirstComment = threadFirstComment;
-        this.threadTitleOwner = threadTitleOwner;
+    public ThreadTitle(String value) {
+        this.value = value;
     }
 
-    public boolean hasValue(){
-        return (threadFirstComment.exists() && threadTitleOwner.exists());
+    public String show() {
+        return toString();
     }
 
-    public boolean exists(){
-        return this != null;
+    boolean exists(){
+        return this.value != null;
     }
 
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }
