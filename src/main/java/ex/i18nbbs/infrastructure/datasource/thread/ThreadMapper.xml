@@ -6,11 +6,11 @@
     <select id="findOne" resultType="ex.i18nbbs.domain.model.thread.Thread">
         SELECT
             t.thread_id AS "threadNumber.value"
-          , tt.title AS "threadTitle.threadFirstCommnet.value"
-          , 'Alice' AS "threadTitleOwner.value"
+          , tt.title AS "threadTheme.threadTitle.value"
+          , tt.title_owner AS "threadTheme.threadOwner.value"
         FROM
             chat.thread t
-                INNER JOIN chat.thread_title tt
+                INNER JOIN chat.thread_theme tt
                     ON t.thread_id = tt.thread_id
         WHERE
             t.thread_id = #{threadNumber.value}
@@ -35,23 +35,23 @@
         SELECT
             r.thread_id AS "threadNumber.value"
           , r.response_id AS "responseNumber.value"
-          , 10 AS "responseOrder.value"
-          , om.id AS "original.originalNumber.value"
-          , om.message AS "original.originalMessage.value"
+          , r.response_order AS "responseOrder.value"
+          , om.original_message_id AS "original.originalNumber.value"
+          , om.original_message AS "original.originalMessage.value"
         FROM
             chat.response r
                 INNER JOIN chat.original_message om
-                    ON (r.original_message_id = om.id)
+                    ON r.response_id = om.response_id
         WHERE
-            thread_id = #{threadNumber.value}
+            r.thread_id = #{threadNumber.value}
     </select>
 
     <select id="findThreadTheme" resultType="ex.i18nbbs.domain.model.thread.title.ThreadTheme">
         SELECT
             tt.title AS "threadTitle.value"
-          , 'Alice' AS "threadOwner.value"
+          , tt.title_owner AS "threadOwner.value"
         FROM
-            chat.thread_title tt
+            chat.thread_theme tt
         WHERE
             tt.thread_id = #{threadNumber.value}
     </select>
