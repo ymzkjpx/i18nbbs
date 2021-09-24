@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="_parts/meta/head::htmlhead(~{::title})">
+    <title>404エラー</title>
 </head>
 <body>
-<h1>Not Found</h1>
-<p><a href="@{/">Topページ</a></p>
+<main class="container">
+    <h1>Not Found</h1>
+    <p><a th:href="@{/}">Topページ</a></p>
+</main>
 </body>
 </html>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="_parts/meta/head::htmlhead(~{::title})">
+    <title>トップページ</title>
 </head>
 <body>
-<h1>Topページ</h1>
-
+<main class="container">
+    <h1>Topページ</h1>
+    <ul>
+        <li><a th:href="@{/thread/1}">最初のスレッド</a></li>
+        <li><a th:href="@{/thread/2}">2番目のスレッド</a><span>(改装中)</span></li>
+    </ul>
+</main>
 </body>
 </html>
