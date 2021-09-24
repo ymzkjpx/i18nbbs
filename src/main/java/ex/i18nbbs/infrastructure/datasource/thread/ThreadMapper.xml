@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="ex.i18nbbs.infrastructure.datasource.thread.ThreadMapper">
+
+
+    <select id="findOne" resultType="ex.i18nbbs.domain.model.thread.title.NumberOfThreadTitles">
+        SELECT
+            COUNT(tt.title) AS "value"
+        FROM
+            chat.thread_title tt
+        WHERE
+            tt.thread_id = #{threadNumber.value}
+    </select>
+
     <resultMap id="findThread" type="ex.i18nbbs.domain.model.thread.Thread">
         <id property="threadNumber.value" column="threadNumber.value"/>
         <association property="threadTitle" javaType="ex.i18nbbs.domain.model.thread.title.ThreadTitle"

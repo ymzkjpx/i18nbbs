@@ -17,6 +17,10 @@ public class ThreadTitleOwner {
         return value;
     }
 
+    boolean exists(){
+        return this.value != null;
+    }
+
     @Override
     public String toString() {
         return "ThreadTitleOwner{" +

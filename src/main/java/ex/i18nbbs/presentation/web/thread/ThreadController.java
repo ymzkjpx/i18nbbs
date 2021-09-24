@@ -24,9 +24,8 @@ public class ThreadController {
 
     @GetMapping("{threadId}")
     String index(Model model, @PathVariable("threadId") ThreadNumber threadNumber){
-        System.out.println(threadNumber);
-        ThreadNumber mockThreadNumber = new ThreadNumber(1);
-        Thread thread = threadQueryService.findByThreadNumber(mockThreadNumber);
+        if(! threadQueryService.existsThread(threadNumber)) return "error/404/notfound";
+        Thread thread = threadQueryService.findByThreadNumber(threadNumber);
         model.addAttribute("thread", thread);
         return "thread/thread";
     }

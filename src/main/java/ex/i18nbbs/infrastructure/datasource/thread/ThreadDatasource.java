@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import ex.i18nbbs.application.thread.ThreadRepository;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
+import ex.i18nbbs.domain.model.thread.title.NumberOfThreadTitles;
 
 @Repository
 public class ThreadDatasource implements ThreadRepository {
@@ -13,6 +14,12 @@ public class ThreadDatasource implements ThreadRepository {
 
     public ThreadDatasource(ThreadMapper threadMapper) {
         this.threadMapper = threadMapper;
+    }
+
+    @Override
+    public Boolean existsThread(ThreadNumber threadNumber) {
+        NumberOfThreadTitles result = threadMapper.findOne(threadNumber);
+        return result.exists();
     }
 
     @Override

@@ -13,6 +13,16 @@ public class ThreadQueryService {
         this.threadRepository = threadRepository;
     }
 
+    /**
+     * スレッドの実在を確認する
+     */
+    public Boolean existsThread(ThreadNumber threadNumber){
+        return threadRepository.existsThread(threadNumber);
+    }
+
+    /**
+     * スレッドのやり取りを取得する.
+     */
     public Thread findByThreadNumber(ThreadNumber threadNumber){
         return threadRepository.findByThreadNumber(threadNumber);
     }

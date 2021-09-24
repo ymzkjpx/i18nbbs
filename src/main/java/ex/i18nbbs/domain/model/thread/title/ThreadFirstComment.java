@@ -16,6 +16,11 @@ public class ThreadFirstComment {
         return toString();
     }
 
+    boolean exists(){
+        return this.value != null;
+    }
+
+
     @Override
     public String toString() {
         return value;
