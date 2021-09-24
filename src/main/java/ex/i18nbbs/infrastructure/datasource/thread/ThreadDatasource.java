@@ -19,9 +19,5 @@ public class ThreadDatasource implements ThreadRepository {
     public Thread findByThreadNumber(ThreadNumber threadNumber) {
         Thread result = threadMapper.findThread(threadNumber);
         return result;
-//        List<Response> responsesList = threadMapper.findResponseList(threadNumber);
-//        Responses responses = new Responses(responsesList);
-//        ThreadTitle threadTitle = threadMapper.findThreadTitle(threadNumber);
-//        return new Thread(threadTitle, responses);
     }
 }
