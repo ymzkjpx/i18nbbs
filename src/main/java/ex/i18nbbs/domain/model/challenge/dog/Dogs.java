@@ -23,13 +23,13 @@ public class Dogs {
 
     public Dog youngestDog(){
         List<Dog> copyList = unmodifiableCopy();
-        Collections.sort(copyList, new DogAgeReverseComparator());
+        Collections.sort(copyList, new DogAgeComparator());
         return copyList.get(0);
     }
 
     public Dog oldestDog(){
         List<Dog> copyList = unmodifiableCopy();
-        Collections.sort(copyList, new DogAgeComparator());
+        Collections.sort(copyList, new DogAgeReverseComparator());
         return copyList.get(0);
     }
 

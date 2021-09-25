@@ -1,5 +1,8 @@
 package ex.i18nbbs.domain.model.response;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import ex.i18nbbs.domain.model.response.original.Original;
 
 /**
