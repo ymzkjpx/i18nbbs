@@ -27,4 +27,20 @@ public class Thread {
         this.threadTheme = threadTheme;
         this.responses = responses;
     }
+
+    public ThreadNumber threadNumber() {
+        return threadNumber;
+    }
+
+    public ResponsePerThread threadSize() {
+        return threadSize;
+    }
+
+    public ThreadTheme threadTheme() {
+        return threadTheme;
+    }
+
+    public Responses responses() {
+        return responses;
+    }
 }

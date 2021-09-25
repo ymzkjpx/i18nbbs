@@ -16,6 +16,10 @@ public class ThreadTitle {
         return toString();
     }
 
+    public String value(){
+        return value;
+    }
+
     boolean exists(){
         return this.value != null;
     }

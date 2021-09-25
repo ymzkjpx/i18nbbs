@@ -4,7 +4,7 @@ VALUES
 
 INSERT INTO chat.thread_theme (thread_theme_id, thread_id, title, title_owner)
 VALUES
-    ((SELECT NEXTVAL('chat.thread_theme_id')), (SELECT CURRVAL('chat.thread_id')), 'スレッドのお題', 'スレッドの設立者名')
+    ((SELECT NEXTVAL('chat.thread_theme_id')), (SELECT CURRVAL('chat.thread_id')), '日本一美味しいお味噌汁の具材を決定しよう', 'Alice')
 ;
 
 INSERT INTO chat.response (response_id, thread_id, response_order, response_owner)

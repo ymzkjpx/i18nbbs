@@ -8,6 +8,7 @@ import ex.i18nbbs.domain.model.response.original.Original;
 public class Response {
     ResponseNumber responseNumber;
     ResponseOrder responseOrder;
+    PostTime postTime;
     Original original;
 
     @Deprecated
@@ -29,6 +30,10 @@ public class Response {
 
     public Original original() {
         return original;
+    }
+
+    public PostTime postTime() {
+        return postTime;
     }
 
     public Response refreshOriginalNumber(Response other){

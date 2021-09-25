@@ -9,7 +9,7 @@ public class ResponseNumber {
     @Deprecated
     ResponseNumber(){}
 
-    private ResponseNumber(int value) {
+    public ResponseNumber(int value) {
         this.value = value;
     }
 
