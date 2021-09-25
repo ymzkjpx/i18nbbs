@@ -58,4 +58,5 @@ public class Dog {
                 ", dogName=" + dogName +
                 '}';
     }
+
 }
