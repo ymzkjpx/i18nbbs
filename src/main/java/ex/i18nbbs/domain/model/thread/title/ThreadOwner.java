@@ -13,7 +13,7 @@ public class ThreadOwner {
         this.value = value;
     }
 
-    String value() {
+    public String value() {
         return value;
     }
 

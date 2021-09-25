@@ -12,13 +12,13 @@
                 <li th:text="${1}">投稿順序</li>
                 <li th:text="${thread.threadTheme.threadOwner.value}">投稿者名</li>
                 <li>
-                    <time><span>最終投稿日時</span></time>
+                    <time><span th:text="${thread.responses().firstPostTime()}">スレッド作成日日時</span></time>
                 </li>
             </ul>
             <div>
                 <ul>
                     <li>投稿数</li>
-                    <li><span></span>最終投稿日時</li>
+                    <li><span></span>投稿日時</li>
                 </ul>
             </div>
         </aside>
