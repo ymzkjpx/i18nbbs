@@ -60,18 +60,31 @@
             tt.thread_id = #{threadNumber.value}
     </select>
 
-    <select id="findHeadlines" resultType="ex.i18nbbs.domain.model.thread.headline.Headline">
+    <resultMap id="findHeadlines" type="ex.i18nbbs.domain.model.thread.headline.Headline">
+        <id property="threadNumber.value" column="threadNumber.value"/>
+        <result property="threadTheme.threadTitle.value" column="threadTheme.threadTitle.value"/>
+        <result property="threadTheme.threadOwner.value" column="threadTheme.threadOwner.value"/>
+        <result property="threadCreatedTime.value" column="threadCreatedTime.value"/>
+        <result property="response.responseNumber.value" column="response.responseNumber.value"/>
+        <result property="response.responseOrder.value" column="response.responseOrder.value"/>
+        <result property="response.responseOwner.value" column="response.responseOwner.value"/>
+        <result property="response.postTime.value" column="response.postTime.value"/>
+        <result property="response.original.originalNumber.value" column="response.original.originalNumber.value"/>
+        <result property="response.original.originalMessage.value" column="response.original.originalMessage.value"/>
+    </resultMap>
+
+    <select id="findHeadlines" resultMap="findHeadlines">
         SELECT
             tt.thread_id AS "threadNumber.value"
           , tt.title AS "threadTheme.threadTitle.value"
           , tt.title_owner AS "threadTheme.threadOwner.value"
           , tt.created_at AS "threadCreatedTime.value"
-          , r.response_id AS "firstResponse.responseNumber.value"
-          , r.response_order AS "firstResponse.responseOrder.value"
-          , r.response_owner AS "firstResponse.responseOwner.value"
-          , r.created_at AS "firstResponse.postTime.value"
-          , om.original_message_id AS "firstResponse.original.originalNumber.value"
-          , om.original_message AS "firstResponse.original.originaMessage.value"
+          , r.response_id AS "response.responseNumber.value"
+          , r.response_order AS "response.responseOrder.value"
+          , r.response_owner AS "response.responseOwner.value"
+          , r.created_at AS "response.postTime.value"
+          , om.original_message_id AS "response.original.originalNumber.value"
+          , om.original_message AS "response.original.originalMessage.value"
         FROM
             chat.thread_theme tt
                 INNER JOIN chat.response r

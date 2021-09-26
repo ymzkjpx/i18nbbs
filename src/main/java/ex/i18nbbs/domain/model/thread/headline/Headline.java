@@ -9,13 +9,16 @@ public class Headline {
     ThreadNumber threadNumber;
     ThreadTheme threadTheme;
     ThreadCreatedTime threadCreatedTime;
-    Response firstResponse;
+    Response response;
 
-    public Headline(ThreadNumber threadNumber, ThreadTheme threadTheme, ThreadCreatedTime threadCreatedTime, Response firstResponse) {
+    @Deprecated
+    Headline(){}
+
+    public Headline(ThreadNumber threadNumber, ThreadTheme threadTheme, ThreadCreatedTime threadCreatedTime, Response response) {
         this.threadNumber = threadNumber;
         this.threadTheme = threadTheme;
         this.threadCreatedTime = threadCreatedTime;
-        this.firstResponse = firstResponse;
+        this.response = response;
     }
 
     public ThreadNumber threadNumber() {
@@ -30,8 +33,8 @@ public class Headline {
         return threadCreatedTime;
     }
 
-    public Response firstResponse() {
-        return firstResponse;
+    public Response response() {
+        return response;
     }
 
     @Override
@@ -40,7 +43,7 @@ public class Headline {
                 "threadNumber=" + threadNumber +
                 ", threadTheme=" + threadTheme +
                 ", threadCreatedTime=" + threadCreatedTime +
-                ", firstResponse=" + firstResponse +
+                ", response=" + response +
                 '}';
     }
 }

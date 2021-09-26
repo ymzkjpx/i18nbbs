@@ -2,6 +2,7 @@ package ex.i18nbbs.infrastructure.datasource.thread;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ex.i18nbbs.application.thread.ThreadRepository;

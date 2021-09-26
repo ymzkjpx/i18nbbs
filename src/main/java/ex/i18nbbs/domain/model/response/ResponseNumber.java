@@ -13,6 +13,10 @@ public class ResponseNumber {
         this.value = value;
     }
 
+    public int value() {
+        return value;
+    }
+
     @Override
     public String toString() {
         return "ResponseNumber{" +

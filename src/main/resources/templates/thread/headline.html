@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="_parts/meta/head::htmlhead(~{::title})">
+    <title>トップページ</title>
+</head>
+<body>
+<main class="container">
+    <header>ヘッダー</header>
+    <h1>スレッド一覧</h1>
+    <section>
+        <ul th:each="headline : ${headlines.asList()}">
+            <li>
+                <div>
+                    <a href="index.html" th:href="@{/index/{id1}(id1=${id1})}">URLの実験1</a>
+                    <h2><a th:href="@{thread/{}">見出しタイトル</a></h2>
+                    <p>見出し本文</p>
+                </div>
+                <aside>
+                    <ul>
+                        <li>スレッド番号</li>
+                        <li>投稿者</li>
+                        <li>投稿日時</li>
+                        <li>スレッド数</li>
+                    </ul>
+                </aside>
+            </li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>

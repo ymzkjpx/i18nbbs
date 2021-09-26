@@ -15,4 +15,6 @@ public class BaseControllerAdvice {
 //        binder.registerCustomEditor(String.class, new StringTrimmerEditor(false));
 //        binder.registerCustomEditor(Covered.class, new EditorForCovered());
     }
+
+
 }
