@@ -3,11 +3,9 @@ package ex.i18nbbs.presentation.web.thread;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ex.i18nbbs.application.thread.ThreadQueryService;
-import ex.i18nbbs.domain.model.thread.headline.Headline;
 import ex.i18nbbs.domain.model.thread.headline.Headlines;
 
 @Controller

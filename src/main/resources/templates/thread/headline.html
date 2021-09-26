@@ -11,16 +11,15 @@
         <ul th:each="headline : ${headlines.asList()}">
             <li>
                 <div>
-                    <a href="index.html" th:href="@{/index/{id1}(id1=${id1})}">URLの実験1</a>
-                    <h2><a th:href="@{thread/{}">見出しタイトル</a></h2>
-                    <p>見出し本文</p>
+                    <h3><a th:href="@{thread/{threadNumber}(threadNumber=${headline.threadNumber.value})}" th:text="${headline.threadTheme.threadTitle.value}">見出しタイトル</a></h3>
+                    <p th:text="${headline.threadTheme.threadTitle.value}">見出し本文</p>
                 </div>
                 <aside>
                     <ul>
-                        <li>スレッド番号</li>
-                        <li>投稿者</li>
-                        <li>投稿日時</li>
-                        <li>スレッド数</li>
+                        <li hidden th:text="${headline.threadNumber.value}">スレッド番号</li>
+                        <li th:text="${headline.threadTheme.threadOwner.value}">投稿者</li>
+                        <li th:text="${headline.threadCreatedTime.value}">投稿日時</li>
+                        <li>スレッド数: 10件ぐらい</li>
                     </ul>
                 </aside>
             </li>
