@@ -4,14 +4,15 @@
     <title>トップページ</title>
 </head>
 <body>
+<header th:replace="_parts/material/header :: default"></header>
 <main class="container">
-    <header>ヘッダー</header>
     <h1>スレッド一覧</h1>
     <section>
         <ul th:each="headline : ${headlines.asList()}">
             <li>
                 <div>
-                    <h3><a th:href="@{thread/{threadNumber}(threadNumber=${headline.threadNumber.value})}" th:text="${headline.threadTheme.threadTitle.value}">見出しタイトル</a></h3>
+                    <h3><a th:href="@{thread/{threadNumber}(threadNumber=${headline.threadNumber.value})}"
+                           th:text="${headline.threadTheme.threadTitle.value}">見出しタイトル</a></h3>
                     <p th:text="${headline.threadTheme.threadTitle.value}">見出し本文</p>
                 </div>
                 <aside>
@@ -25,6 +26,7 @@
             </li>
         </ul>
     </section>
+    <footer th:replace="_parts/material/footer :: default"></footer>
 </main>
 </body>
 </html>
