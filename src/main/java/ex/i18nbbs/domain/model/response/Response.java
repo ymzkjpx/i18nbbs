@@ -1,8 +1,5 @@
 package ex.i18nbbs.domain.model.response;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import ex.i18nbbs.domain.model.response.original.Original;
 
 /**
@@ -11,15 +8,18 @@ import ex.i18nbbs.domain.model.response.original.Original;
 public class Response {
     ResponseNumber responseNumber;
     ResponseOrder responseOrder;
+    ResponseOwner responseOwner;
     PostTime postTime;
     Original original;
 
     @Deprecated
     Response(){}
 
-    public Response(ResponseNumber responseNumber, ResponseOrder responseOrder, Original original) {
+    public Response(ResponseNumber responseNumber, ResponseOrder responseOrder, ResponseOwner responseOwner, PostTime postTime, Original original) {
         this.responseNumber = responseNumber;
         this.responseOrder = responseOrder;
+        this.responseOwner = responseOwner;
+        this.postTime = postTime;
         this.original = original;
     }
 
@@ -31,23 +31,25 @@ public class Response {
         return responseOrder;
     }
 
-    public Original original() {
-        return original;
+    public ResponseOwner responseOwner() {
+        return responseOwner;
     }
 
     public PostTime postTime() {
         return postTime;
     }
 
-    public Response refreshOriginalNumber(Response other){
-        Original originalResult = Original.refreshNumber(other.original);
-        return new Response(this.responseNumber, this.responseOrder, originalResult);
+    public Original original() {
+        return original;
     }
 
     @Override
     public String toString() {
         return "Response{" +
                 "responseNumber=" + responseNumber +
+                ", responseOrder=" + responseOrder +
+                ", responseOwner=" + responseOwner +
+                ", postTime=" + postTime +
                 ", original=" + original +
                 '}';
     }

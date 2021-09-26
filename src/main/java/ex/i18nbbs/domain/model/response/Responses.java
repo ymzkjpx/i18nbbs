@@ -49,7 +49,7 @@ public class Responses {
         return firstResponse().postTime.show();
     }
 
-    public String lastPostTime(){
+    public String latestPostTime(){
         return lastResponse().postTime.show();
     }
 

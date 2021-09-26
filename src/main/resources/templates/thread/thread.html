@@ -9,37 +9,41 @@
     <section th:object="${thread}">
         <aside>
             <ul>
-                <li th:text="${1}">投稿順序</li>
-                <li th:text="${thread.threadTheme.threadOwner.value}">投稿者名</li>
+                <li th:text="${thread.responses().firstResponse().resOrder().value()}">投稿順序</li>
+                <li>投稿者: <span th:text="${thread.threadTheme.threadOwner.value}"></span></li>
                 <li>
-                    <time><span th:text="${thread.responses().firstPostTime()}">スレッド作成日日時</span></time>
+                    最終投稿日時:
+                    <time><span th:text="${thread.responses().latestPostTime()}"></span></time>
                 </li>
             </ul>
             <div>
                 <ul>
-                    <li>投稿数</li>
-                    <li><span></span>投稿日時</li>
+                    <li>投稿数: <span th:text="${thread.responses().count()}"></span></li>
+                    <li>スレッド作成日時: <span th:text="${thread.responses().firstPostTime()}"></span></li>
                 </ul>
             </div>
         </aside>
         <div>
-            <h2>お題タイトル</h2>
-            <p>お題の説明</p>
+            <h2 th:text="${thread.threadTheme().threadTitle().value()}"></h2>
+            <p th:text="${thread.responses().firstResponse().original().originalMessage().value()}">お題の説明</p>
         </div>
     </section>
+    <hr>
     <section>
-        <aside>
-            <ul>
-                <li>投稿順序</li>
-                <li>投稿者名</li>
-                <li>
-                    <time><span>投稿日時</span></time>
-                </li>
-            </ul>
-        </aside>
-        <div>
-            <p>レスポンス</p>
-        </div>
+        <section th:each="response : ${thread.responses().asList()}">
+            <aside>
+                <ul>
+                    <list th:text="${response.resOrder().value()}">投稿順序</list>
+                    <li>投稿者: <span th:text="${response.responseOwner().value()}"></span></li>
+                    <li>
+                        <time>投稿日時: <span th:text="${response.postTime().show()}"></span></time>
+                    </li>
+                </ul>
+            </aside>
+            <div>
+                <p th:text="${response.original().originalMessage().value()}">レスポンス本文</p>
+            </div>
+        </section>
     </section>
 </main>
 </body>
