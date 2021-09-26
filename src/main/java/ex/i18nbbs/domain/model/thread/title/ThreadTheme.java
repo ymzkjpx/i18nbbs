@@ -1,5 +1,7 @@
 package ex.i18nbbs.domain.model.thread.title;
 
+import ex.i18nbbs.domain.model.thread.ThreadOwner;
+
 public class ThreadTheme {
     ThreadTitle threadTitle;
     ThreadOwner threadOwner;

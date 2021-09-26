@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
+import ex.i18nbbs.domain.model.thread.headline.Headlines;
 
 @Service
 public class ThreadQueryService {
@@ -18,6 +19,13 @@ public class ThreadQueryService {
      */
     public Boolean existsThread(ThreadNumber threadNumber){
         return threadRepository.existsThread(threadNumber);
+    }
+
+    /**
+     * スレッド見出しの一覧を取得する
+     */
+    public Headlines headlines(){
+        return threadRepository.findHeadlines();
     }
 
     /**

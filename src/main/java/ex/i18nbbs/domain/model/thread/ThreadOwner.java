@@ -1,4 +1,4 @@
-package ex.i18nbbs.domain.model.thread.title;
+package ex.i18nbbs.domain.model.thread;
 
 /**
  * スレタイ作成者の名前

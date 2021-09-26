@@ -54,5 +54,8 @@ jig {
 jigReports.dependsOn(clean, classes)
 
 test {
+    testLogging {
+        events 'started', 'skipped', 'passed', 'failed'
+    }
     useJUnitPlatform()
 }

@@ -59,4 +59,26 @@
         WHERE
             tt.thread_id = #{threadNumber.value}
     </select>
+
+    <select id="findHeadlines" resultType="ex.i18nbbs.domain.model.thread.headline.Headline">
+        SELECT
+            tt.thread_id AS "threadNumber.value"
+          , tt.title AS "threadTheme.threadTitle.value"
+          , tt.title_owner AS "threadTheme.threadOwner.value"
+          , tt.created_at AS "threadCreatedTime.value"
+          , r.response_id AS "firstResponse.responseNumber.value"
+          , r.response_order AS "firstResponse.responseOrder.value"
+          , r.response_owner AS "firstResponse.responseOwner.value"
+          , r.created_at AS "firstResponse.postTime.value"
+          , om.original_message_id AS "firstResponse.original.originalNumber.value"
+          , om.original_message AS "firstResponse.original.originaMessage.value"
+        FROM
+            chat.thread_theme tt
+                INNER JOIN chat.response r
+                    ON tt.thread_id = r.thread_id
+                INNER JOIN chat.original_message om
+                    ON r.response_id = om.response_id
+        WHERE
+            r.response_order = 1
+    </select>
 </mapper>
