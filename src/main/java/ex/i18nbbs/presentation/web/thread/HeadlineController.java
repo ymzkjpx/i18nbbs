@@ -22,7 +22,7 @@ public class HeadlineController {
     String index(Model model){
         Headlines headlines = threadQueryService.headlines();
         model.addAttribute("headlines", headlines);
-        return "thread/headline";
+        return "thread/newheadline";
 
     }
 

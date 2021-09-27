@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="_parts/meta/head::htmlhead(~{::title})">
-    <title>スレッド</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-<header th:replace="_parts/material/header::default"></header>
 <main class="container">
     <article class="p-4 p-md-5 mb-4 rounded bg-light">
         <figure class="col-md-6 px-0">
@@ -17,22 +19,23 @@
         <ul th:each="headline : ${headlines.asList()}">
             <li class="list-group-item">
                 <section>
-                    <a class="link-dark" href="#"
-                       th:href="@{thread/{threadNumber}(threadNumber=${headline.threadNumber.value})}" th:text="${headline.threadTheme.threadTitle.value}">
-                        <h3 class="display-6">見出しタイトル</h3>
-                    </a>
+                    <h3 class="text-dark">
+                        <a class="link-dark" href="#"
+                           th:class="link-dark"
+                           th:href="@{thread/{threadNumber}(threadNumber=${headline.threadNumber.value})}"
+                           th:text="${headline.threadTheme.threadTitle.value}">見出しタイトル</a>
+                    </h3>
                     <aside class="pt-0 pb-3">
                         <ul class="d-flex flex-row list-inline">
                             <li class="list-inline-item" hidden th:text="${headline.threadNumber.value}">スレッド番号</li>
-                            <li class="list-inline-item" th:text="${headline.threadTheme.threadOwner.value}">
+                            <li class="list-inline-item">
                                 <svg class="bi bi-person" fill="currentColor" height="16" viewBox="0 0 16 16"
                                      width="16" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                 </svg>
-                                <span>Alice</span>
+                                <span th:text="${headline.threadTheme.threadOwner.value}">Alice</span>
                             </li>
-                            <li class="list-inline-item" th:text="${headline.threadCreatedTime.value}">
+                            <li class="list-inline-item">
                                 <svg class="bi bi-clock" fill="currentColor" height="16" viewBox="0 0 16 16"
                                      width="16" xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -40,7 +43,7 @@
                                     <path
                                             d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                                 </svg>
-                                <span>2021/09/27 16:15</span>
+                                <span th:text="${headline.threadCreatedTime.value}">2021/09/27 16:15</span>
                             </li>
                             <li class="list-inline-item">
                                 <svg class="bi bi-chat" fill="currentColor" height="16" viewBox="0 0 16 16"
@@ -50,16 +53,15 @@
                                 </svg>
                                 <span>10件ぐらい</span>
                             </li>
-                            <ul>
+                        </ul>
                     </aside>
                     <section>
-                        <p th:text="${headline.threadTheme.threadTitle.value}">見出し本文</p>
+                        <p th:text="${headline.response.original.originalMessage.value}">見出し本文</p>
                     </section>
                 </section>
             </li>
         </ul>
     </section>
-    <footer th:replace="_parts/material/footer::default"></footer>
 </main>
 </body>
 </html>
