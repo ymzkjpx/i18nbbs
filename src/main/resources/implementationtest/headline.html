@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="_parts/meta/head::htmlhead(~{::title})">
-    <title>トップページ</title>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
+
 <body>
     <main class="container">
         <article class="p-4 p-md-5 mb-4 rounded bg-light">
@@ -62,4 +67,5 @@
         <footer th:replace="_parts/material/footer :: default"></footer>
     </main>
 </body>
+
 </html>
