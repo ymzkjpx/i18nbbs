@@ -15,7 +15,7 @@
                     <ul class="d-flex flex-column py-2 rounded bg-light">
                         <h2 class="px-0 pt-2 pb-0 display-6" th:text="${thread.threadTheme().threadTitle().value()}">
                             お題タイトル</h2>
-                        <aside class="d-flex pt-0 mt-0">
+                        <aside class="d-flex pt-0 mt-0 text-secondary">
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <svg class="bi bi-clock" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
@@ -46,11 +46,11 @@
         </article>
         <article>
             <article class="mx-1 my-2" th:each="response : ${thread.responses().asList()}">
-                <section class="d-flex flex-column m-2 box-shadow border-bottom rounded bg-light">
+                <section class="d-flex flex-column m-2 px-2 shadow-sm border-start rounded bg-light">
                     <aside>
-                        <ul class="d-flex flex-row p-0 m-0">
+                        <ul class="d-flex flex-row p-0 m-0 text-secondary">
                             <li class="list-inline-item p-2 mx-0">
-                                <a class="p-0 px-1" href="#">>>
+                                <a class="p-0 px-1 text-info" href="#">>>
                                     <span th:text="${response.resOrder().value()}">1</span>
                                 </a>
                             </li>
@@ -73,7 +73,7 @@
                             </li>
                         </ul>
                     </aside>
-                    <section class="p-2 mt-0">
+                    <section class="p-2 mt-0 text-body">
                         <p class="mb-4" th:text="${response.original().originalMessage().value()}">
                             レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文レスポンス本文
                             レスポンス本文レスポンス本文レスポンス本文レスポンス本文
