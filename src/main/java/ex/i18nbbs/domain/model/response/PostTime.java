@@ -1,10 +1,16 @@
 package ex.i18nbbs.domain.model.response;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.validation.constraints.NotNull;
+
 public class PostTime {
-    LocalDateTime value;
+    @NotNull(message = "投稿日時が不正です")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    LocalDateTime value = LocalDateTime.now();
 
     @Deprecated
     PostTime(){}
@@ -17,9 +23,14 @@ public class PostTime {
         return value;
     }
 
-    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-    public String show(){
-        return value.format(formatter);
+    public static DateTimeFormatter formatterWithYMDHMS = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    public String showWithYMDHMS(){
+        return value.format(formatterWithYMDHMS);
+    }
+
+    public static DateTimeFormatter formatterWithYMD = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+    public String showWithYMD(){
+        return value.format(formatterWithYMD);
     }
 
     @Override

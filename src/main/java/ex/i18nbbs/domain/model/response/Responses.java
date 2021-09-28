@@ -45,12 +45,21 @@ public class Responses {
         return list.size();
     }
 
-    public String firstPostTime(){
-        return firstResponse().postTime.show();
+    public String firstPostTimeWithYMDHMS(){
+        return firstResponse().postTime.showWithYMDHMS();
     }
 
-    public String latestPostTime(){
-        return lastResponse().postTime.show();
+    public String latestPostTimeWithYMDHMS(){
+        return lastResponse().postTime.showWithYMDHMS();
+    }
+
+
+    public String firstPostTimeWithYMD(){
+        return firstResponse().postTime.showWithYMD();
+    }
+
+    public String latestPostTimeWithYMD(){
+        return lastResponse().postTime.showWithYMD();
     }
 
     public List<Response> asList(){

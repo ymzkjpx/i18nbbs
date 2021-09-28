@@ -46,4 +46,21 @@ public class Thread {
     public List<Response> responses(){
         return responses.asList();
     }
+
+    public String firstPostTimeWithYMDHMS(){
+        return responses.firstPostTimeWithYMDHMS();
+    }
+
+    public String latestPostTimeWithYMDHMS(){
+        return responses.latestPostTimeWithYMDHMS();
+    }
+
+    public String firstPostTimeWithYMD(){
+        return responses.firstPostTimeWithYMD();
+    }
+
+    public String latestPostTimeWithYMD(){
+        return responses.latestPostTimeWithYMD();
+    }
+
 }
