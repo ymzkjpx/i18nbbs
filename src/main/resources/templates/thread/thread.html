@@ -4,8 +4,11 @@
     <title>スレッド</title>
 </head>
 <body>
+
 <header th:replace="_parts/material/header::default"></header>
+
 <main class="container">
+
     <article class="pt-2 mb-4 border-bottom">
         <aside>
             <div class="p-2">
@@ -41,6 +44,7 @@
             </div>
         </aside>
     </article>
+
     <article>
         <article class="mx-1 my-3" th:each="response : ${thread.responses()}">
             <section class="d-flex flex-column m-2 px-2 shadow-sm border-start rounded bg-light">
@@ -65,7 +69,8 @@
                                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
                             </svg>
                             <time>
-                                <span class="pl-1" th:text="${response.postTime().showWithYMDHMS()}">2021/09/27-19:21:55</span>
+                                <span class="pl-1"
+                                      th:text="${response.postTime().showWithYMDHMS()}">2021/09/27-19:21:55</span>
                             </time>
                         </li>
                     </ul>
@@ -81,7 +86,35 @@
             </section>
         </article>
     </article>
+
+    <article class="mx-1 my-2 py-3 border-top container">
+        <section>
+            <p class="p-0 m-0 pt-1"><a href="#"><span>最新 1</span>~<span>100</span></a><span> (実装中)</span></p>
+        </section>
+    </article>
+
+    <article class="mr-5 mt-2 p-1 border-top">
+        <form action="#" class="p-1 mr-5 mt-5 bg-light" method="post">
+            <ul class="d-flex flex-column m-0 p-0">
+                <li class="d-flex flex-row p-1">
+                    <label for=""></label>
+                    <input class="w-50 form-control-sm" placeholder="名前" type="text">
+                </li>
+                <li class="d-flex flex-row p-1">
+                    <label for=""></label>
+                    <textarea class="flex-fill form-control-sm" cols="30" id="" name="" placeholder="本文"
+                              rows="10"></textarea>
+                </li>
+            </ul>
+            <div class="d-flex flex-row my-2 px-3 justify-content-end">
+                <input class="btn btn-primary btn fs-6 w-30" type="submit" value="書き込む">
+            </div>
+        </form>
+    </article>
+
 </main>
+
 <footer th:replace="_parts/material/footer :: default"></footer>
+
 </body>
 </html>

@@ -9,6 +9,7 @@
 <header th:replace="_parts/material/header::default"></header>
 
 <main class="container mt-5">
+
     <article>
         <form action="#" th:action="@{/thread/post}" method="post" th:object="${thread}">
             <block th:if="${#fields.hasAnyErrors()}">
@@ -33,6 +34,7 @@
             </section>
         </form>
     </article>
+
 </main>
 
 <footer th:replace="_parts/material/footer :: default"></footer>
