@@ -1,5 +1,7 @@
 package ex.i18nbbs.domain.model.response;
 
+import java.util.Collections;
+
 import javax.validation.Valid;
 
 import ex.i18nbbs.domain.model.response.original.Original;
@@ -19,8 +21,7 @@ public class Response {
     @Valid
     Original original;
 
-    @Deprecated
-    Response(){}
+    public Response(){}
 
     public Response(ResponseNumber responseNumber, ResponseOrder responseOrder, ResponseOwner responseOwner, PostTime postTime, Original original) {
         this.responseNumber = responseNumber;

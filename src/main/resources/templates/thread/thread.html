@@ -94,20 +94,22 @@
     </article>
 
     <article class="mr-5 mt-2 p-1 border-top">
-        <form action="#" class="p-1 mr-5 mt-5 bg-light" method="post">
+        <form action="#" class="p-1 mr-5 mt-5 bg-light" method="post"
+              th:action="@{/thread/{threadNumber}(threadNumber=${thread.threadNumber().value()})}" th:object="${response}">
             <ul class="d-flex flex-column m-0 p-0">
                 <li class="d-flex flex-row p-1">
-                    <label for=""></label>
-                    <input class="w-50 form-control-sm" placeholder="名前" type="text">
+                    <label th:for="response.responseOwner.value"></label>
+                    <input class="w-50 form-control-sm" placeholder="名前" th:field="${response.responseOwner.value}" type="text">
                 </li>
                 <li class="d-flex flex-row p-1">
-                    <label for=""></label>
-                    <textarea class="flex-fill form-control-sm" cols="30" id="" name="" placeholder="本文"
-                              rows="10"></textarea>
+                    <label th:for="response.original.originalMessage.value"></label>
+                    <textarea class="flex-fill form-control-sm" cols="30"
+                              placeholder="本文" rows="10" th:field="${response.original.originalMessage.value}">
+                    </textarea>
                 </li>
             </ul>
             <div class="d-flex flex-row my-2 px-3 justify-content-end">
-                <input class="btn btn-primary btn fs-6 w-30" type="submit" value="書き込む">
+                <input class="btn btn-primary btn fs-6 w-30" name="newResponse" type="submit" value="書き込む">
             </div>
         </form>
     </article>
