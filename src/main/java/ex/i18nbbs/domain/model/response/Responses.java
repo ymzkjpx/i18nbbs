@@ -12,10 +12,9 @@ import ex.i18nbbs.domain.model.response.compare.ResponseReverseComparator;
  * レスポンスの塊
  */
 public class Responses {
-    List<Response> list;
+    List<Response> list = new ArrayList<>();
 
-    @Deprecated
-    Responses(){}
+    public Responses(){}
 
     public Responses(List<Response> list) {
         this.list = list;
@@ -28,6 +27,7 @@ public class Responses {
     private List<Response> unmodifiableCopy(){
         return new ArrayList<>(Collections.unmodifiableList(list));
     }
+
 
     public Response firstResponse(){
         List<Response> result = unmodifiableCopy();
@@ -52,7 +52,6 @@ public class Responses {
     public String latestPostTime(){
         return lastResponse().postTime.show();
     }
-
 
     public List<Response> asList(){
         return list;

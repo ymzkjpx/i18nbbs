@@ -1,8 +1,8 @@
 package ex.i18nbbs.infrastructure.datasource.thread;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ex.i18nbbs.application.thread.ThreadRepository;
@@ -37,5 +37,19 @@ public class ThreadDatasource implements ThreadRepository {
         List<Headline> result = threadMapper.findHeadlines();
         if (result == null) return Headlines.empty();
         return Headlines.from(result);
+    }
+
+    @Override
+    @Transactional
+    public void newThread(Thread thread) {
+        // TODO: 登録前のバリデーションを設ける.
+        // ThreadNumberを取得する
+        // ThreadにThreadeNumberを登録する
+        // ThreadThemeにThreadNumberとタイトルとユーザーを登録する
+        // ResponseNumberを取得する
+        // ResponseにThreadNumberとResponseNumberを登録する
+        // OriginalMessageNumberを取得する
+        // OriginalMessageにResponseNumberとOriginalMessageIdとOriginalMessageを登録する
+        threadMapper.newThread(thread);
     }
 }

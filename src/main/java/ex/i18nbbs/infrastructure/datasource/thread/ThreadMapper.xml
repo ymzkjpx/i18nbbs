@@ -60,6 +60,7 @@
             tt.thread_id = #{threadNumber.value}
     </select>
 
+<!--    TODO このresultMapは不要なので削除する.-->
     <resultMap id="findHeadlines" type="ex.i18nbbs.domain.model.thread.headline.Headline">
         <id property="threadNumber.value" column="threadNumber.value"/>
         <result property="threadTheme.threadTitle.value" column="threadTheme.threadTitle.value"/>
@@ -94,4 +95,8 @@
         WHERE
             r.response_order = 1
     </select>
+
+    <insert id="newThread">
+    </insert>
+
 </mapper>

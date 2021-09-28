@@ -23,7 +23,6 @@ public class HeadlineController {
         Headlines headlines = threadQueryService.headlines();
         model.addAttribute("headlines", headlines);
         return "thread/newheadline";
-
     }
 
 }

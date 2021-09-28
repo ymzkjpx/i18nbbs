@@ -5,34 +5,37 @@
     <title>スレッド新規投稿</title>
 </head>
 <body>
+
 <header th:replace="_parts/material/header::default"></header>
+
 <main class="container mt-5">
     <article>
-        <form action="#" method="post">
+        <form action="#" th:action="@{/thread/post}" method="post" th:object="${thread}">
+<!--            <block th:if="${#fields.hasAnyErrors()}">-->
+<!--                <mark><span th:text="${#fields.allErrors()}"></span></mark>-->
+<!--            </block>-->
             <section class="d-flex flex-column">
                 <ul class="list-inline-item">
-                    <label for="post-title">スレッドタイトル</label>
-                    <input class="form-control" id="post-title" type="text">
+                    <label th:for="thread.threadTheme.threadTitle.value">スレッドタイトル</label>
+                    <input class="form-control" th:field="${thread.threadTheme.threadTitle.value}" type="text">
                 </ul>
                 <ul class="list-inline-item">
-                    <label for="post-user">ユーザー名</label>
-                    <input class="form-control" id="post-user" type="text">
+                    <label th:for="thread.threadTheme.threadOwner.value">ユーザー名</label>
+                    <input class="form-control" th:field="${thread.threadTheme.threadOwner.value}" type="text">
                 </ul>
                 <ul class="list-inline-item">
-                    <label for="post-email">E-mail</label>
-                    <input class="form-control" id="post-email" placeholder="you@email.com" type="email">
-                </ul>
-                <ul class="list-inline-item">
-                    <label for="post-content">本文</label>
-                    <textarea class="form-control" id="post-content" placeholder="" rows="10"></textarea>
+                    <label th:for="thread.responses.list[0].original.originalMessage.value">本文</label>
+                    <textarea class="form-control" id="post-content" th:field="${thread.responses.list[0].original.originalMessage.value}" rows="10"></textarea>
                 </ul>
                 <div class="d-grid gap-2 col-10 mx-auto my-5">
-                    <input class="btn btn-primary btn-lg" type="submit" value="新規スレッド作成">
+                    <input class="btn btn-primary btn-lg" type="submit" value="新規スレッド作成" name="newThread">
                 </div>
             </section>
         </form>
     </article>
 </main>
+
 <footer th:replace="_parts/material/footer :: default"></footer>
+
 </body>
 </html>

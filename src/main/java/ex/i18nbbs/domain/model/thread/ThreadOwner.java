@@ -9,7 +9,7 @@ public class ThreadOwner {
     @Deprecated
     ThreadOwner(){}
 
-    ThreadOwner(String value) {
+    public ThreadOwner(String value) {
         this.value = value;
     }
 

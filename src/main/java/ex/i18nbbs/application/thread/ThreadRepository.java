@@ -11,4 +11,5 @@ public interface ThreadRepository {
     Boolean existsThread(ThreadNumber threadNumber);
     Thread findByThreadNumber(ThreadNumber threadNumber);
     Headlines findHeadlines();
+    void newThread(Thread thread);
 }

@@ -16,4 +16,5 @@ public interface ThreadMapper {
     Thread findThread(@Param("threadNumber") ThreadNumber threadNumber);
     ThreadTheme findThreadTheme(@Param("threadNumber") ThreadNumber threadNumber);
     List<Headline> findHeadlines();
+    void newThread(@Param("thread") Thread thread);
 }
