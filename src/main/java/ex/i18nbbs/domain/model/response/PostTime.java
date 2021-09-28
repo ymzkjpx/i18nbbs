@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 import javax.validation.constraints.NotNull;
 
 public class PostTime {
-    @NotNull(message = "投稿日時が不正です")
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @NotNull
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     LocalDateTime value = LocalDateTime.now();
 
     @Deprecated

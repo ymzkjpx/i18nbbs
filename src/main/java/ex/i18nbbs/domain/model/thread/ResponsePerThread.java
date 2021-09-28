@@ -1,9 +1,12 @@
 package ex.i18nbbs.domain.model.thread;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * 1ページ内に表示する返信数
  */
 public class ResponsePerThread {
+    @NotNull
     int value;
 
     private ResponsePerThread(){}

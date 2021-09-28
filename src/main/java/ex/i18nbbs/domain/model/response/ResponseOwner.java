@@ -1,6 +1,9 @@
 package ex.i18nbbs.domain.model.response;
 
+import javax.validation.constraints.NotNull;
+
 public class ResponseOwner {
+    @NotNull
     String value;
 
     @Deprecated

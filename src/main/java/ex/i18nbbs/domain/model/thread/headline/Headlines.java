@@ -3,8 +3,10 @@ package ex.i18nbbs.domain.model.thread.headline;
 import java.util.Collections;
 import java.util.List;
 
+import javax.validation.Valid;
+
 public class Headlines {
-    List<Headline> list;
+    List<@Valid Headline> list;
 
     @Deprecated
     Headlines(){}

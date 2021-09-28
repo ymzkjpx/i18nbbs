@@ -1,15 +1,22 @@
 package ex.i18nbbs.domain.model.response;
 
+import javax.validation.Valid;
+
 import ex.i18nbbs.domain.model.response.original.Original;
 
 /**
  * 返信
  */
 public class Response {
+    @Valid
     ResponseNumber responseNumber;
+    @Valid
     ResponseOrder responseOrder;
+    @Valid
     ResponseOwner responseOwner;
+    @Valid
     PostTime postTime;
+    @Valid
     Original original;
 
     @Deprecated

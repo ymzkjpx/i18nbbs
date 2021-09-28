@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import ex.i18nbbs.domain.model.response.compare.ResponseComparator;
 import ex.i18nbbs.domain.model.response.compare.ResponseReverseComparator;
 
@@ -12,7 +14,7 @@ import ex.i18nbbs.domain.model.response.compare.ResponseReverseComparator;
  * レスポンスの塊
  */
 public class Responses {
-    List<Response> list = new ArrayList<>();
+    List<@Valid Response> list = new ArrayList<>();
 
     public Responses(){}
 

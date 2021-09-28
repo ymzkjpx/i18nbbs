@@ -1,9 +1,12 @@
 package ex.i18nbbs.domain.model.thread;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * スレタイ作成者の名前
  */
 public class ThreadOwner {
+    @NotNull
     String value;
 
     @Deprecated

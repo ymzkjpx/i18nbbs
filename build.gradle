@@ -51,6 +51,8 @@ jig {
     linkPrefix = "https://github.com/ymzkjpx/i18nbbs/"
 }
 
+//JIG出力コマンド: ./gradlew clean build jig
+
 [compileJava, processResources]*.shouldRunAfter(clean)
 jigReports.dependsOn(clean, classes)
 

@@ -2,8 +2,10 @@ package ex.i18nbbs.domain.model.challenge.dog;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
+import ex.i18nbbs.domain.model.challenge.dog.comparator.DogAgeComparator;
+import ex.i18nbbs.domain.model.challenge.dog.comparator.DogAgeReverseComparator;
 
 public class Dogs {
     List<Dog> list;
@@ -37,23 +39,5 @@ public class Dogs {
 
     public List<Dog> asList(){
         return list;
-    }
-
-    public static class DogAgeComparator implements Comparator<Dog> {
-        @Override
-        public int compare(Dog o1, Dog o2) {
-            if(o1.age() < o2.age()) return -1;
-            if(o1.age() > o2.age()) return 1;
-            return 0;
-        }
-    }
-
-    public static class DogAgeReverseComparator implements Comparator<Dog> {
-        @Override
-        public int compare(Dog o1, Dog o2) {
-            if(o1.age() < o2.age()) return 1;
-            if(o1.age() > o2.age()) return -1;
-            return 0;
-        }
     }
 }

@@ -1,9 +1,12 @@
 package ex.i18nbbs.domain.model.thread;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * スレッド番号
  */
 public class ThreadNumber {
+    @NotNull
     int value;
 
     @Deprecated
