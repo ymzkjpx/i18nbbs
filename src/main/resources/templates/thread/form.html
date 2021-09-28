@@ -11,9 +11,9 @@
 <main class="container mt-5">
     <article>
         <form action="#" th:action="@{/thread/post}" method="post" th:object="${thread}">
-<!--            <block th:if="${#fields.hasAnyErrors()}">-->
-<!--                <mark><span th:text="${#fields.allErrors()}"></span></mark>-->
-<!--            </block>-->
+            <block th:if="${#fields.hasAnyErrors()}">
+                <mark><span th:text="${#fields.allErrors()}"></span></mark>
+            </block>
             <section class="d-flex flex-column">
                 <ul class="list-inline-item">
                     <label th:for="thread.threadTheme.threadTitle.value">スレッドタイトル</label>

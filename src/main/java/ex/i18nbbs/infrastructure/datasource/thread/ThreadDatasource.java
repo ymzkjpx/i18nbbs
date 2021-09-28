@@ -44,12 +44,18 @@ public class ThreadDatasource implements ThreadRepository {
     public void newThread(Thread thread) {
         // TODO: 登録前のバリデーションを設ける.
         // ThreadNumberを取得する
-        // ThreadにThreadeNumberを登録する
+        int nextThreadNumber = threadMapper.nextThreadNumber();
+        // ThreadにThreadNumberを登録する
+        threadMapper.insertThread(nextThreadNumber, thread);
+        // ThreadThemeNumberを取得する
+        int nextThreadThemeNumber = threadMapper.nextThreadThemeNumber();
         // ThreadThemeにThreadNumberとタイトルとユーザーを登録する
+        threadMapper.insertThreadTheme(nextThreadThemeNumber, nextThreadNumber, thread.threadTheme());
         // ResponseNumberを取得する
+        int nextResponseNumber = threadMapper.nextResponseNumber();
         // ResponseにThreadNumberとResponseNumberを登録する
-        // OriginalMessageNumberを取得する
+        threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, thread.threadTheme().threadOwner().value());
         // OriginalMessageにResponseNumberとOriginalMessageIdとOriginalMessageを登録する
-        threadMapper.newThread(thread);
+        threadMapper.insertOriginal(thread.responses().get(0).original(), nextResponseNumber);
     }
 }

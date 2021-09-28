@@ -60,7 +60,7 @@
             tt.thread_id = #{threadNumber.value}
     </select>
 
-<!--    TODO このresultMapは不要なので削除する.-->
+    <!--    TODO このresultMapは不要なので削除する.-->
     <resultMap id="findHeadlines" type="ex.i18nbbs.domain.model.thread.headline.Headline">
         <id property="threadNumber.value" column="threadNumber.value"/>
         <result property="threadTheme.threadTitle.value" column="threadTheme.threadTitle.value"/>
@@ -96,7 +96,45 @@
             r.response_order = 1
     </select>
 
-    <insert id="newThread">
+    <select id="nextThreadNumber" resultType="int">
+        SELECT NEXTVAL('chat.thread_id')
+    </select>
+
+    <insert id="insertThread">
+        INSERT INTO
+            chat.thread(thread_id)
+        VALUES
+            (#{nextThreadNumber})
+    </insert>
+
+    <select id="nextThreadThemeNumber" resultType="int">
+        SELECT NEXTVAL('chat.thread_theme_id')
+    </select>
+
+    <insert id="insertThreadTheme">
+        INSERT INTO
+            chat.thread_theme (thread_theme_id ,thread_id ,title ,title_owner)
+        VALUES
+            (#{nextThreadThemeNumber} ,#{nextThreadNumber} ,#{threadTheme.threadTitle.value}
+            ,#{threadTheme.threadOwner.value})
+    </insert>
+
+    <select id="nextResponseNumber" resultType="int">
+        SELECT NEXTVAL('chat.response_id')
+    </select>
+
+    <insert id="insertResponse">
+        INSERT INTO
+            chat.response (response_id ,thread_id ,response_order ,response_owner)
+        VALUES
+            (#{nextResponseNumber} ,#{nextThreadNumber} ,1 ,#{threadOwner})
+    </insert>
+
+    <insert id="insertOriginal">
+        INSERT INTO
+            chat.original_message (original_message_id ,response_id ,original_message)
+        VALUES
+            (#{original.originalNumber.value} ,#{nextResponseNumber} ,#{original.originalMessage.value})
     </insert>
 
 </mapper>

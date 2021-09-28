@@ -11,6 +11,11 @@ public class OriginalNumberManger {
 
     public static String nextNumber() {
         String uuidText = UUID.randomUUID().toString().toUpperCase();
-        return uuidText.substring(4,28).split("-").toString();
+        String[] strAry = uuidText.substring(4,28).split("-");
+        StringBuilder builder = new StringBuilder();
+        for (String s : strAry) {
+            builder.append(s);
+        }
+        return builder.toString();
     }
 }
