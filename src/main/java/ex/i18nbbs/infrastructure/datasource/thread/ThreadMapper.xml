@@ -123,18 +123,26 @@
         SELECT NEXTVAL('chat.response_id')
     </select>
 
+    <select id="nextResponseOrder" resultType="java.lang.Integer">
+        SELECT
+            MAX(r.response_order)
+        FROM chat.response r
+        WHERE
+            r.thread_id = #{threadNumber}
+    </select>
+
     <insert id="insertResponse">
         INSERT INTO
             chat.response (response_id ,thread_id ,response_order ,response_owner)
         VALUES
-            (#{nextResponseNumber} ,#{nextThreadNumber} ,1 ,#{threadOwner})
+            (#{nextResponseNumber} ,#{threadNumber} ,1 ,#{threadOwner})
     </insert>
 
     <insert id="insertOriginal">
         INSERT INTO
             chat.original_message (original_message_id ,response_id ,original_message)
         VALUES
-            (#{original.originalNumber.value} ,#{nextResponseNumber} ,#{original.originalMessage.value})
+            (#{original.originalNumber.value} ,#{responseNumber} ,#{original.originalMessage.value})
     </insert>
 
 </mapper>

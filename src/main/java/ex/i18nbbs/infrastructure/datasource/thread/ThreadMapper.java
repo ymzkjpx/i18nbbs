@@ -34,10 +34,13 @@ public interface ThreadMapper {
 
     int nextResponseNumber();
 
+    int nextResponseOrder(@Param("threadNumber") int threadNumber);
+
     void insertResponse(@Param("nextResponseNumber") int nextResponseNumber,
-                        @Param("nextThreadNumber") int nextThreadNumber,
+                        @Param("threadNumber") int threadNumber,
                         @Param("threadOwner") String textThreadOwner);
 
     void insertOriginal(@Param("original") Original original,
-                        @Param("nextResponseNumber") int nextResponseNumber);
+                        @Param("responseNumber") int responseNumber);
+
 }

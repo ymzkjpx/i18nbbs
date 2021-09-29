@@ -19,6 +19,10 @@ public class PostTime {
         this.value = value;
     }
 
+    public static PostTime now(){
+        return new PostTime(LocalDateTime.now());
+    }
+
     public LocalDateTime value() {
         return value;
     }

@@ -12,7 +12,7 @@ public class ResponseOrder {
     @Deprecated
     private ResponseOrder(){}
 
-    private ResponseOrder(int value) {
+    public ResponseOrder(int value) {
         this.value = value;
     }
 

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 import ex.i18nbbs.application.thread.ThreadRepository;
+import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.domain.model.thread.headline.Headline;
@@ -51,5 +52,17 @@ public class ThreadDatasource implements ThreadRepository {
         int nextResponseNumber = threadMapper.nextResponseNumber();
         threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, thread.threadTheme().threadOwner().value());
         threadMapper.insertOriginal(thread.responses().get(0).original(), nextResponseNumber);
+    }
+
+    @Override
+    public void newResponse(ThreadNumber threadNumber, Response response) {
+        // response番号の取得
+        int nextResponseNumber = threadMapper.nextResponseNumber();
+        // レスポンスorderの取得
+        int nextResponseOrder = threadMapper.nextResponseOrder(threadNumber.value());
+        // responseの登録
+        threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), response.responseOwner().value());
+        // originalMessageの登録
+        threadMapper.insertOriginal(response.original(), nextResponseNumber);
     }
 }
