@@ -25,7 +25,6 @@
         </association>
         <collection property="responses.list" ofType="ex.i18nbbs.domain.model.response.Response">
             <result property="responseNumber.value" column="responseNumber.value"/>
-            <result property="responseOrder.value" column="responseOrder.value"/>
             <result property="responseOwner.value" column="responseOwner.value"/>
             <result property="postTime.value" column="postTime.value"/>
             <result property="original.originalNumber.value" column="original.originalNumber.value"/>
@@ -37,7 +36,6 @@
         SELECT
             r.thread_id AS "threadNumber.value"
           , r.response_id AS "responseNumber.value"
-          , r.response_order AS "responseOrder.value"
           , r.response_owner AS "responseOwner.value"
           , r.created_at AS "postTime.value"
           , om.original_message_id AS "original.originalNumber.value"
