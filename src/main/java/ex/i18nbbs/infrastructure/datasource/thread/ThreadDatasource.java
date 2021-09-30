@@ -50,19 +50,20 @@ public class ThreadDatasource implements ThreadRepository {
         int nextThreadThemeNumber = threadMapper.nextThreadThemeNumber();
         threadMapper.insertThreadTheme(nextThreadThemeNumber, nextThreadNumber, thread.threadTheme());
         int nextResponseNumber = threadMapper.nextResponseNumber();
-        threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, thread.threadTheme().threadOwner().value());
-        threadMapper.insertOriginal(thread.responses().get(0).original(), nextResponseNumber);
+        threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, 1, thread.responses().get(0));
+        threadMapper.insertOriginalMessage(nextResponseNumber, thread.responses().get(0).original());
     }
 
     @Override
+    @Transactional
     public void newResponse(ThreadNumber threadNumber, Response response) {
         // response番号の取得
         int nextResponseNumber = threadMapper.nextResponseNumber();
         // レスポンスorderの取得
         int nextResponseOrder = threadMapper.nextResponseOrder(threadNumber.value());
         // responseの登録
-        threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), response.responseOwner().value());
+        threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), nextResponseOrder, response);
         // originalMessageの登録
-        threadMapper.insertOriginal(response.original(), nextResponseNumber);
+        threadMapper.insertOriginalMessage(nextResponseNumber, response.original());
     }
 }

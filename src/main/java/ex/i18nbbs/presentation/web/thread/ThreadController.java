@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.websocket.server.PathParam;
+
 import ex.i18nbbs.application.thread.ThreadQueryService;
 import ex.i18nbbs.application.thread.ThreadRegisterService;
 import ex.i18nbbs.domain.model.response.Response;
+import ex.i18nbbs.domain.model.response.ResponseNumber;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
@@ -52,17 +55,14 @@ public class ThreadController {
 
     @PostMapping(path = "{threadNumber}", params = "newResponse")
     String newResponse(@ModelAttribute("responseRequest") ResponseRequest responseRequest,
+                       @PathVariable ThreadNumber threadNumber,
                        BindingResult bindingResult) {
-        System.out.println(responseRequest);
         if (responseRequest == null) return "thread/newheadline";
-//        Thread request = Thread.of(responseRequest);
-//        if (!threadQueryService.existsThread(threadNumber)) return "thread/newheadline";
-//        if (bindingResult.hasErrors()) return String.format("thread/%s", threadNumber);
-//        System.out.println(response);
-//        threadRegisterService.newResponse(threadNumber, response);
-//
-//        // TODO: 投稿したthreadNumberに戻す
-        return "redirect:/";
+        if (bindingResult.hasErrors()) return String.format("thread/%s",threadNumber.value());
+        ThreadNumber requestThreadNumber = responseRequest.threadNumber();
+        Response requestResponse = responseRequest.response();
+        threadRegisterService.newResponse(requestThreadNumber, requestResponse);
+        return String.format("redirect:/thread/%s",threadNumber.value());
     }
 
     @InitBinder

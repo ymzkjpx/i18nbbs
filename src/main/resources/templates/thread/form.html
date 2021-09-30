@@ -23,6 +23,7 @@
                 <ul class="list-inline-item">
                     <label th:for="thread.threadTheme.threadOwner.value">ユーザー名</label>
                     <input class="form-control" th:field="${thread.threadTheme.threadOwner.value}" type="text">
+                    <input hidden th:field="${thread.responses.list[0].responseOwner.value}" type="text">
                 </ul>
                 <ul class="list-inline-item">
                     <label th:for="thread.responses.list[0].original.originalMessage.value">本文</label>

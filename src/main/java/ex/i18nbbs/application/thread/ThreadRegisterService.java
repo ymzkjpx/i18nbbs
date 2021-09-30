@@ -25,8 +25,7 @@ public class ThreadRegisterService {
      * スレッドに返信をする
      */
     public void newResponse(ThreadNumber threadNumber, Response response){
-
-
+        threadRepository.newResponse(threadNumber, response);
     }
 }
 

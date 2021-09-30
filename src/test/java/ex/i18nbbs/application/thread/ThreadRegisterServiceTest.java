@@ -82,4 +82,9 @@ class ThreadRegisterServiceTest {
         );
     }
 
+    @Test
+    void 新規スレッドが建設できることWithPostMethod(){
+        // TODO: HTTP.Postを使ったテストを実施する.
+    }
+
 }

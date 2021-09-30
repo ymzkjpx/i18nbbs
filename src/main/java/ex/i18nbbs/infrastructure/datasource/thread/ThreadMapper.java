@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.response.original.Original;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
@@ -38,9 +39,10 @@ public interface ThreadMapper {
 
     void insertResponse(@Param("nextResponseNumber") int nextResponseNumber,
                         @Param("threadNumber") int threadNumber,
-                        @Param("threadOwner") String textThreadOwner);
+                        @Param("responseOrder") int nextResponseOrder,
+                        @Param("response") Response response);
 
-    void insertOriginal(@Param("original") Original original,
-                        @Param("responseNumber") int responseNumber);
+    void insertOriginalMessage(@Param("responseNumber") int responseNumber,
+                               @Param("original") Original original);
 
 }

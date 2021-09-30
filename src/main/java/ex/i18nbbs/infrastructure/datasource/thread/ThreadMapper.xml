@@ -135,10 +135,10 @@
         INSERT INTO
             chat.response (response_id ,thread_id ,response_order ,response_owner)
         VALUES
-            (#{nextResponseNumber} ,#{threadNumber} ,1 ,#{threadOwner})
+            (#{nextResponseNumber} ,#{threadNumber} ,#{nextResponseNumber} ,#{response.responseOwner.value})
     </insert>
 
-    <insert id="insertOriginal">
+    <insert id="insertOriginalMessage">
         INSERT INTO
             chat.original_message (original_message_id ,response_id ,original_message)
         VALUES
