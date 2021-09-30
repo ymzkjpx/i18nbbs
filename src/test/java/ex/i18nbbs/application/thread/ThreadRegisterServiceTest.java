@@ -79,10 +79,4 @@ class ThreadRegisterServiceTest {
                 , () -> assertEquals(dummyOriginalMessage, result.responses().get(0).original().originalMessage().value())
         );
     }
-
-    @Test
-    void 新規スレッドが建設できることWithPostMethod(){
-        // TODO: HTTP.Postを使ったテストを実施する.
-    }
-
 }
