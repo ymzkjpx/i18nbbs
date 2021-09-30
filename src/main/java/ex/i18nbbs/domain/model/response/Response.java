@@ -13,7 +13,7 @@ public class Response {
     @Valid
     ResponseOwner responseOwner;
     @Valid
-    PostTime postTime;
+    PostTime postTime = PostTime.now();
     @Valid
     Original original = new Original();
 
