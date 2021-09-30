@@ -1,7 +1,5 @@
 package ex.i18nbbs.domain.model.thread.headline;
 
-import org.springframework.validation.annotation.Validated;
-
 import javax.validation.Valid;
 
 import ex.i18nbbs.domain.model.response.Response;

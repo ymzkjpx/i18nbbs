@@ -1,6 +1,5 @@
 package ex.i18nbbs.domain.model.thread;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -8,7 +7,6 @@ import javax.validation.Valid;
 import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.response.Responses;
 import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
-import ex.i18nbbs.presentation.web.thread.viewmodel.ResponseRequest;
 
 /**
  * スレッド
