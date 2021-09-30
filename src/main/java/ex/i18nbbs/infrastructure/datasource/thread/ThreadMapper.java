@@ -37,8 +37,6 @@ public interface ThreadMapper {
 
     int nextResponseNumber();
 
-    int nextResponseOrder(@Param("threadNumber") int threadNumber);
-
     void insertResponse(@Param("nextResponseNumber") int nextResponseNumber,
                         @Param("threadNumber") int threadNumber,
                         @Param("response") Response response);

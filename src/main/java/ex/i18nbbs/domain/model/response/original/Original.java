@@ -7,8 +7,7 @@ public class Original {
     OriginalNumber originalNumber = OriginalNumber.nextNumber();
     OriginalMessage originalMessage = OriginalMessage.empty();
 
-    @Deprecated
-    Original(){}
+    public Original(){}
 
     public Original(OriginalNumber originalNumber, OriginalMessage originalMessage) {
         this.originalNumber = originalNumber;

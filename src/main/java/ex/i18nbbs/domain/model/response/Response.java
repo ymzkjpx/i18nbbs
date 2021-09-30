@@ -13,9 +13,9 @@ public class Response {
     @Valid
     ResponseOwner responseOwner;
     @Valid
-    PostTime postTime = PostTime.now();
+    PostTime postTime;
     @Valid
-    Original original;
+    Original original = new Original();
 
     @Deprecated
     Response(){}

@@ -113,7 +113,7 @@
             <th:block th:object="${thread}">
                 <input hidden th:name="responseRequest.threadNumber.value"
                        th:value="${thread.threadNumber.value}" type="text">
-                <input hidden th:name="responseRequest.response.postTime" type="text">
+                <input hidden th:name="responseRequest.response.postTime" th:value="${thread.responses().size()}" type="text">
             </th:block>
             <div class="d-flex flex-row my-2 px-3 justify-content-end">
                 <input class="btn btn-primary btn fs-6 w-30" name="newResponse" type="submit" value="書き込む">
