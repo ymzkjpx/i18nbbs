@@ -1,28 +1,23 @@
 package ex.i18nbbs.presentation.web.thread;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import ex.i18nbbs.application.thread.ThreadQueryService;
 import ex.i18nbbs.domain.model.response.original.OriginalMessage;
-import ex.i18nbbs.domain.model.thread.headline.Headline;
 import ex.i18nbbs.domain.model.thread.headline.Headlines;
 import ex.i18nbbs.domain.model.thread.title.ThreadOwner;
 import ex.i18nbbs.domain.model.thread.title.ThreadTitle;
 import ex.i18nbbs.i18nbbsTest;
-import ex.i18nbbs.infrastructure.datasource.thread.ThreadMapper;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @i18nbbsTest
 @AutoConfigureMockMvc

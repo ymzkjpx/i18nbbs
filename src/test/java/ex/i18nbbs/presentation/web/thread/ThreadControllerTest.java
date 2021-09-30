@@ -6,12 +6,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import java.time.LocalDateTime;
-
 import ex.i18nbbs.application.thread.ThreadQueryService;
 import ex.i18nbbs.domain.model.response.PostTime;
 import ex.i18nbbs.domain.model.response.ResponseOwner;
-import ex.i18nbbs.domain.model.response.original.Original;
 import ex.i18nbbs.domain.model.response.original.OriginalMessage;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
@@ -19,9 +16,9 @@ import ex.i18nbbs.i18nbbsTest;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 @i18nbbsTest
 @AutoConfigureMockMvc
