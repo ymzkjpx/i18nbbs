@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * 返信投稿時間
+ */
 public class PostTime {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

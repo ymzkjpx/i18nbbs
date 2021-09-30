@@ -7,6 +7,9 @@ import ex.i18nbbs.domain.model.thread.ThreadCreatedTime;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
 
+/**
+ * スレッドの見出し
+ */
 public class Headline {
     @Valid
     ThreadNumber threadNumber;

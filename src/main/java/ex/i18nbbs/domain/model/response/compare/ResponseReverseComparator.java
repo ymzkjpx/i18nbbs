@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import ex.i18nbbs.domain.model.response.Response;
 
+/**
+ * 投稿日時が新しい順番に並び替える
+ */
 public class ResponseReverseComparator implements Comparator<Response> {
 
     @Override

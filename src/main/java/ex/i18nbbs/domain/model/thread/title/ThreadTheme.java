@@ -1,7 +1,8 @@
 package ex.i18nbbs.domain.model.thread.title;
 
-import ex.i18nbbs.domain.model.thread.ThreadOwner;
-
+/**
+ * スレッドテーマ
+ */
 public class ThreadTheme {
     ThreadTitle threadTitle;
     ThreadOwner threadOwner;

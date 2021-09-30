@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ex.i18nbbs.application.thread.ThreadRegisterService;
 import ex.i18nbbs.domain.model.thread.Thread;
 
+/**
+ * 新規スレッド建設コントローラー
+ */
 @Controller
 @RequestMapping("/thread/post")
 public class ThreadPostController {

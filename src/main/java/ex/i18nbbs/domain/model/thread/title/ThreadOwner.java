@@ -1,4 +1,4 @@
-package ex.i18nbbs.domain.model.thread;
+package ex.i18nbbs.domain.model.thread.title;
 
 import javax.validation.constraints.NotNull;
 

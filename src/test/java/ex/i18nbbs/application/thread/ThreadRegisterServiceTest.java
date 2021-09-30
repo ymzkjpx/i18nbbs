@@ -17,7 +17,7 @@ import ex.i18nbbs.domain.model.response.original.OriginalMessage;
 import ex.i18nbbs.domain.model.response.original.OriginalNumber;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
-import ex.i18nbbs.domain.model.thread.ThreadOwner;
+import ex.i18nbbs.domain.model.thread.title.ThreadOwner;
 import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
 import ex.i18nbbs.domain.model.thread.title.ThreadTitle;
 import ex.i18nbbs.i18nbbsTest;

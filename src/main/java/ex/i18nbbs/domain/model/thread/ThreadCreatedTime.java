@@ -7,6 +7,9 @@ import java.time.format.DateTimeFormatter;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * スレッド建設日時
+ */
 public class ThreadCreatedTime {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

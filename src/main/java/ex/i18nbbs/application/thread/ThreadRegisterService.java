@@ -6,6 +6,9 @@ import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 
+/**
+ * スレッド登録サービス
+ */
 @Service
 public class ThreadRegisterService {
     ThreadRepository threadRepository;

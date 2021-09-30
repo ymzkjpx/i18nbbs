@@ -3,6 +3,9 @@ package ex.i18nbbs.presentation.web.thread.viewmodel;
 import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 
+/**
+ * 新規返信リクエスト受信専用モデル
+ */
 public class ResponseRequest {
     ThreadNumber threadNumber;
     Response response;

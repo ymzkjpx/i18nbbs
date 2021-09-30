@@ -2,6 +2,9 @@ package ex.i18nbbs.domain.model.response;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * 返信者名
+ */
 public class ResponseOwner {
     @NotNull
     String value;

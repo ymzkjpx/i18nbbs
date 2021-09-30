@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+/**
+ * スレッド見出しの一覧
+ */
 public class Headlines {
     List<@Valid Headline> list;
 

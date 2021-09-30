@@ -18,6 +18,9 @@ import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.presentation.web.thread.viewmodel.ResponseRequest;
 
+/**
+ * スレッド履歴コントローラー
+ */
 @Controller
 @RequestMapping("thread")
 public class ThreadController {

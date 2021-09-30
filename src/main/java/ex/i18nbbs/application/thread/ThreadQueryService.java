@@ -6,6 +6,9 @@ import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.domain.model.thread.headline.Headlines;
 
+/**
+ * スレッド検索サービス
+ */
 @Service
 public class ThreadQueryService {
     ThreadRepository threadRepository;

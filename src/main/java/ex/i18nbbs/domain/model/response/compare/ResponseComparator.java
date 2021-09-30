@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import ex.i18nbbs.domain.model.response.Response;
 
+/**
+ * 投稿順序が古い順版に並べる(デフォルト)
+ */
 public class ResponseComparator implements Comparator<Response> {
 
     @Override

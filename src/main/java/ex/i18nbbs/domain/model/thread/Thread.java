@@ -15,8 +15,6 @@ public class Thread {
     @Valid
     ThreadNumber threadNumber;
     @Valid
-    ResponsePerThread threadSize = ResponsePerThread.medium();
-    @Valid
     ThreadTheme threadTheme;
     @Valid
     Responses responses = new Responses();
@@ -30,19 +28,8 @@ public class Thread {
         this.responses = responses;
     }
 
-    public Thread(ThreadNumber threadNumber, ResponsePerThread threadSize, ThreadTheme threadTheme, Responses responses) {
-        this.threadNumber = threadNumber;
-        this.threadSize = threadSize;
-        this.threadTheme = threadTheme;
-        this.responses = responses;
-    }
-
     public ThreadNumber threadNumber() {
         return threadNumber;
-    }
-
-    public ResponsePerThread threadSize() {
-        return threadSize;
     }
 
     public ThreadTheme threadTheme() {
@@ -69,4 +56,12 @@ public class Thread {
         return responses.latestPostTimeWithYMD();
     }
 
+    @Override
+    public String toString() {
+        return "Thread{" +
+                "threadNumber=" + threadNumber +
+                ", threadTheme=" + threadTheme +
+                ", responses=" + responses +
+                '}';
+    }
 }
