@@ -39,14 +39,6 @@ public class Thread {
         this.responses = responses;
     }
 
-//    public static Thread of(ResponseRequest responseRequest){
-//        return new Thread(
-//                new ThreadNumber(responseRequest.threadNumber().value()),
-//                new ThreadTheme(responseRequest.getThreadTheme()),
-//                new Responses(Response.of(responseRequest.responseOwner(), responseRequest.original())
-//        );
-//    }
-
     public ThreadNumber threadNumber() {
         return threadNumber;
     }

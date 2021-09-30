@@ -45,13 +45,12 @@ public class ThreadController {
         model.addAttribute("thread", thread);
 
         // TODO メソッドレベルのModelAttributeとして切り出す
-        model.addAttribute("response", Response.empty());
         model.addAttribute("responseRequest", ResponseRequest.empty());
 
         return "thread/thread";
     }
 
-    @PostMapping(params = "newResponse")
+    @PostMapping(path = "{threadNumber}", params = "newResponse")
     String newResponse(@ModelAttribute("responseRequest") ResponseRequest responseRequest,
                        BindingResult bindingResult) {
         System.out.println(responseRequest);
@@ -69,9 +68,10 @@ public class ThreadController {
     @InitBinder
     void initBinder(WebDataBinder webDataBinder) {
         webDataBinder.setAllowedFields(
+                "response.responseOwner.value",
+                "response.original.originalMessage.value",
                 "threadNumber.value",
-                "responseOwner.value",
-                "original.originalMessage.value"
+                "response.postTime.value"
         );
     }
 

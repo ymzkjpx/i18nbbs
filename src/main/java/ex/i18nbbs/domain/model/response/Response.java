@@ -1,12 +1,5 @@
 package ex.i18nbbs.domain.model.response;
 
-import org.apache.catalina.valves.rewrite.RewriteCond;
-
-import java.security.DrbgParameters;
-import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Objects;
-
 import javax.validation.Valid;
 
 import ex.i18nbbs.domain.model.response.original.Original;
@@ -22,7 +15,7 @@ public class Response {
     @Valid
     ResponseOwner responseOwner;
     @Valid
-    PostTime postTime;
+    PostTime postTime = PostTime.now();
     @Valid
     Original original;
 
@@ -35,16 +28,6 @@ public class Response {
         this.responseOwner = responseOwner;
         this.postTime = postTime;
         this.original = original;
-    }
-
-    public static Response of(ResponseOwner responseOwner, Original original){
-        return new Response(
-                new ResponseNumber(1),
-                new ResponseOrder(1),
-                responseOwner,
-                PostTime.now(),
-                original
-        );
     }
 
     public static Response empty(){
