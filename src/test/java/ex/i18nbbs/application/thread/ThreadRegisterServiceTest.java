@@ -10,7 +10,6 @@ import java.util.Arrays;
 import ex.i18nbbs.domain.model.response.PostTime;
 import ex.i18nbbs.domain.model.response.Response;
 import ex.i18nbbs.domain.model.response.ResponseNumber;
-import ex.i18nbbs.domain.model.response.ResponseOrder;
 import ex.i18nbbs.domain.model.response.ResponseOwner;
 import ex.i18nbbs.domain.model.response.Responses;
 import ex.i18nbbs.domain.model.response.original.Original;
@@ -61,7 +60,6 @@ class ThreadRegisterServiceTest {
                         Arrays.asList(
                                 new Response(
                                         new ResponseNumber(threadMapper.nextResponseNumber()),
-                                        ResponseOrder.first(),
                                         new ResponseOwner(dummyThreadOwner),
                                         new PostTime(LocalDateTime.now()),
                                         new Original(
@@ -73,7 +71,7 @@ class ThreadRegisterServiceTest {
                 )
         );
         threadRegisterService.register(thread);
-        Thread result = threadQueryService.findByThreadNumber(threadNumber);
+        Thread result = threadQueryService.findThreadByThreadNumber(threadNumber);
         System.out.println(result);
         assertAll(
                 () -> assertEquals(dummyThreadTitle, result.threadTheme().threadTitle().value())

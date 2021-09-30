@@ -22,6 +22,8 @@ public interface ThreadMapper {
 
     List<Headline> findHeadlines();
 
+    Response firstPostForEachThread(@Param("threadNumber") ThreadNumber threadNumber);
+
     int nextThreadNumber();
 
     void insertThread(@Param("nextThreadNumber") int nextThreadNumber,
@@ -39,7 +41,6 @@ public interface ThreadMapper {
 
     void insertResponse(@Param("nextResponseNumber") int nextResponseNumber,
                         @Param("threadNumber") int threadNumber,
-                        @Param("responseOrder") int nextResponseOrder,
                         @Param("response") Response response);
 
     void insertOriginalMessage(@Param("responseNumber") int responseNumber,

@@ -44,26 +44,23 @@ public class ThreadDatasource implements ThreadRepository {
     @Transactional
     public void newThread(Thread thread) {
         // TODO: 登録前のバリデーションを設ける.
+        // TODO: MyBatisに渡す値は可能な限りオブジェクトに固定し、プリミティブな形は控える. その上で尚プリミティブを採用する場合は、メソッドがプリミティブを要求していることをメソッドに説明させる.
+        // TODO: int型をやめる.
 
         int nextThreadNumber = threadMapper.nextThreadNumber();
         threadMapper.insertThread(nextThreadNumber, thread);
         int nextThreadThemeNumber = threadMapper.nextThreadThemeNumber();
         threadMapper.insertThreadTheme(nextThreadThemeNumber, nextThreadNumber, thread.threadTheme());
         int nextResponseNumber = threadMapper.nextResponseNumber();
-        threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, 1, thread.responses().get(0));
+        threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, thread.responses().get(0));
         threadMapper.insertOriginalMessage(nextResponseNumber, thread.responses().get(0).original());
     }
 
     @Override
     @Transactional
     public void newResponse(ThreadNumber threadNumber, Response response) {
-        // response番号の取得
         int nextResponseNumber = threadMapper.nextResponseNumber();
-        // レスポンスorderの取得
-        int nextResponseOrder = threadMapper.nextResponseOrder(threadNumber.value());
-        // responseの登録
-        threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), nextResponseOrder, response);
-        // originalMessageの登録
+        threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), response);
         threadMapper.insertOriginalMessage(nextResponseNumber, response.original());
     }
 }

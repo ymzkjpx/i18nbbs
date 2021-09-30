@@ -31,7 +31,7 @@ public class ThreadQueryService {
     /**
      * スレッドのやり取りを取得する.
      */
-    public Thread findByThreadNumber(ThreadNumber threadNumber){
+    public Thread findThreadByThreadNumber(ThreadNumber threadNumber){
         return threadRepository.findByThreadNumber(threadNumber);
     }
 }

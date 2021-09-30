@@ -11,8 +11,6 @@ public class Response {
     @Valid
     ResponseNumber responseNumber;
     @Valid
-    ResponseOrder responseOrder;
-    @Valid
     ResponseOwner responseOwner;
     @Valid
     PostTime postTime = PostTime.now();
@@ -22,9 +20,8 @@ public class Response {
     @Deprecated
     Response(){}
 
-    public Response(ResponseNumber responseNumber, ResponseOrder responseOrder, ResponseOwner responseOwner, PostTime postTime, Original original) {
+    public Response(ResponseNumber responseNumber, ResponseOwner responseOwner, PostTime postTime, Original original) {
         this.responseNumber = responseNumber;
-        this.responseOrder = responseOrder;
         this.responseOwner = responseOwner;
         this.postTime = postTime;
         this.original = original;
@@ -36,10 +33,6 @@ public class Response {
 
     public ResponseNumber responseNumber() {
         return responseNumber;
-    }
-
-    public ResponseOrder resOrder() {
-        return responseOrder;
     }
 
     public ResponseOwner responseOwner() {
@@ -58,7 +51,6 @@ public class Response {
     public String toString() {
         return "Response{" +
                 "responseNumber=" + responseNumber +
-                ", responseOrder=" + responseOrder +
                 ", responseOwner=" + responseOwner +
                 ", postTime=" + postTime +
                 ", original=" + original +

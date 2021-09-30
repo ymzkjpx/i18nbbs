@@ -7,14 +7,14 @@ VALUES
     ((SELECT NEXTVAL('chat.thread_theme_id')), (SELECT CURRVAL('chat.thread_id')), '日本一美味しいお味噌汁の具材を決定しよう', 'Alice', CURRENT_DATE - 8);
 ;
 
-INSERT INTO chat.response (response_id, thread_id, response_order, response_owner, created_at)
+INSERT INTO chat.response (response_id, thread_id, response_owner, created_at)
 VALUES
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 1, 'Bob', CURRENT_DATE - 8),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 2, 'Carol', CURRENT_DATE - 7),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 3, 'Dave', CURRENT_DATE - 6),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 4, 'Eve', CURRENT_DATE - 5),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 5, 'Bob', CURRENT_DATE - 5),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 6, 'Carol', CURRENT_DATE - 4)
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 8),
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 7),
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Dave', CURRENT_DATE - 6),
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Eve', CURRENT_DATE - 5),
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 5),
+((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 4)
 ;
 
 INSERT INTO chat.original_message (original_message_id, response_id, original_message, created_at)

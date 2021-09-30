@@ -10,18 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.websocket.server.PathParam;
 
 import ex.i18nbbs.application.thread.ThreadQueryService;
 import ex.i18nbbs.application.thread.ThreadRegisterService;
 import ex.i18nbbs.domain.model.response.Response;
-import ex.i18nbbs.domain.model.response.ResponseNumber;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
-import ex.i18nbbs.domain.model.thread.title.ThreadTheme;
 import ex.i18nbbs.presentation.web.thread.viewmodel.ResponseRequest;
 
 @Controller
@@ -44,7 +38,7 @@ public class ThreadController {
     @GetMapping("{threadNumber}")
     String index(Model model, @PathVariable("threadNumber") ThreadNumber threadNumber) {
         if (!threadQueryService.existsThread(threadNumber)) return "error/404/notfound";
-        Thread thread = threadQueryService.findByThreadNumber(threadNumber);
+        Thread thread = threadQueryService.findThreadByThreadNumber(threadNumber);
         model.addAttribute("thread", thread);
 
         // TODO メソッドレベルのModelAttributeとして切り出す

@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS chat.response
 (
     response_id INTEGER PRIMARY KEY ,
     thread_id INTEGER REFERENCES chat.thread (thread_id) ,
-    response_order INTEGER NOT NULL ,
     response_owner varchar(60) NOT NULL ,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
