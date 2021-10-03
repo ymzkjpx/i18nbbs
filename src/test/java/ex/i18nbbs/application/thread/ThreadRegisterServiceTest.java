@@ -59,7 +59,7 @@ class ThreadRegisterServiceTest {
                 new Responses(
                         Arrays.asList(
                                 new Response(
-                                        new ResponseNumber(threadMapper.nextResponseNumber()),
+                                        new ResponseNumber(ResponseNumber.generate().value()),
                                         new ResponseOwner(dummyThreadOwner),
                                         new PostTime(LocalDateTime.now()),
                                         new Original(

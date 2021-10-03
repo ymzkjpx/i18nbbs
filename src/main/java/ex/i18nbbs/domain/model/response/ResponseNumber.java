@@ -1,5 +1,7 @@
 package ex.i18nbbs.domain.model.response;
 
+import java.util.UUID;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -7,17 +9,21 @@ import javax.validation.constraints.NotNull;
  */
 public class ResponseNumber {
     @NotNull
-    int value;
+    String value;
 
     @Deprecated
     ResponseNumber(){}
 
-    public ResponseNumber(int value) {
+    public ResponseNumber(String value) {
         this.value = value;
     }
 
-    public int value() {
+    public String value() {
         return value;
+    }
+
+    public static ResponseNumber generate(){
+        return new ResponseNumber(UUID.randomUUID().toString());
     }
 
     @Override

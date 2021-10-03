@@ -9,7 +9,7 @@ import ex.i18nbbs.domain.model.response.original.Original;
  */
 public class Response {
     @Valid
-    ResponseNumber responseNumber;
+    ResponseNumber responseNumber = ResponseNumber.generate();
     @Valid
     ResponseOwner responseOwner;
     @Valid

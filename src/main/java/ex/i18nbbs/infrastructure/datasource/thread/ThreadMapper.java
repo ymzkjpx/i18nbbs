@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 import ex.i18nbbs.domain.model.response.Response;
+import ex.i18nbbs.domain.model.response.ResponseNumber;
 import ex.i18nbbs.domain.model.response.original.Original;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
@@ -35,13 +36,11 @@ public interface ThreadMapper {
                            @Param("nextThreadNumber") int nextThreadNumber,
                            @Param("threadTheme") ThreadTheme threadTheme);
 
-    int nextResponseNumber();
-
-    void insertResponse(@Param("nextResponseNumber") int nextResponseNumber,
+    void insertResponse(@Param("nextResponseNumber") ResponseNumber nextResponseNumber,
                         @Param("threadNumber") int threadNumber,
                         @Param("response") Response response);
 
-    void insertOriginalMessage(@Param("responseNumber") int responseNumber,
+    void insertOriginalMessage(@Param("responseNumber") ResponseNumber responseNumber,
                                @Param("original") Original original);
 
 }

@@ -25,16 +25,16 @@ DROP SEQUENCE IF EXISTS chat.response_id;
 CREATE SEQUENCE chat.response_id;
 CREATE TABLE IF NOT EXISTS chat.response
 (
-    response_id INTEGER PRIMARY KEY ,
+    response_id CHAR(36) PRIMARY KEY ,
     thread_id INTEGER REFERENCES chat.thread (thread_id) ,
-    response_owner varchar(60) NOT NULL ,
+    response_owner VARCHAR(60) NOT NULL ,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS chat.original_message
 (
     original_message_id VARCHAR(24) PRIMARY KEY ,
-    response_id INTEGER REFERENCES chat.response (response_id) ,
+    response_id CHAR(36) REFERENCES chat.response (response_id) ,
     original_message VARCHAR(1000) NOT NULL ,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

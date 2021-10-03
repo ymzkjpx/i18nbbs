@@ -7,6 +7,7 @@ import java.util.List;
 
 import ex.i18nbbs.application.thread.ThreadRepository;
 import ex.i18nbbs.domain.model.response.Response;
+import ex.i18nbbs.domain.model.response.ResponseNumber;
 import ex.i18nbbs.domain.model.thread.Thread;
 import ex.i18nbbs.domain.model.thread.ThreadNumber;
 import ex.i18nbbs.domain.model.thread.headline.Headline;
@@ -51,7 +52,7 @@ public class ThreadDatasource implements ThreadRepository {
         threadMapper.insertThread(nextThreadNumber, thread);
         int nextThreadThemeNumber = threadMapper.nextThreadThemeNumber();
         threadMapper.insertThreadTheme(nextThreadThemeNumber, nextThreadNumber, thread.threadTheme());
-        int nextResponseNumber = threadMapper.nextResponseNumber();
+        ResponseNumber nextResponseNumber = thread.responses().get(0).responseNumber();
         threadMapper.insertResponse(nextResponseNumber, nextThreadNumber, thread.responses().get(0));
         threadMapper.insertOriginalMessage(nextResponseNumber, thread.responses().get(0).original());
     }
@@ -59,7 +60,7 @@ public class ThreadDatasource implements ThreadRepository {
     @Override
     @Transactional
     public void newResponse(ThreadNumber threadNumber, Response response) {
-        int nextResponseNumber = threadMapper.nextResponseNumber();
+        ResponseNumber nextResponseNumber = response.responseNumber();
         threadMapper.insertResponse(nextResponseNumber, threadNumber.value(), response);
         threadMapper.insertOriginalMessage(nextResponseNumber, response.original());
     }
