@@ -9,12 +9,12 @@ VALUES
 
 INSERT INTO chat.response (response_id, thread_id, response_owner, created_at)
 VALUES
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 8),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 7),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Dave', CURRENT_DATE - 6),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Eve', CURRENT_DATE - 5),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 5),
-((SELECT NEXTVAL('chat.response_id')), (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 4)
+('80a8159f-f2ca-433e-89c8-2078a13975c3', (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 8),
+('b9339da5-e50f-40c0-9eaa-c92815365183', (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 7),
+('4e20c001-b0fa-4a1b-9fe2-6ab8c9621b88', (SELECT CURRVAL('chat.thread_id')), 'Dave', CURRENT_DATE - 6),
+('5e63c884-efa4-4afd-8aff-8a3b2d9f08b8', (SELECT CURRVAL('chat.thread_id')), 'Eve', CURRENT_DATE - 5),
+('92463383-06e4-4d86-8b5f-7d3b9929378f', (SELECT CURRVAL('chat.thread_id')), 'Bob', CURRENT_DATE - 5),
+('ab46a6c9-cffe-4dd4-9c97-4c61b239d0be', (SELECT CURRVAL('chat.thread_id')), 'Carol', CURRENT_DATE - 4)
 ;
 
 INSERT INTO chat.original_message (original_message_id, response_id, original_message, created_at)

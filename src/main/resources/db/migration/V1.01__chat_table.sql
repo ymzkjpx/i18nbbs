@@ -21,8 +21,6 @@ CREATE TABLE IF NOT EXISTS chat.thread_theme
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-DROP SEQUENCE IF EXISTS chat.response_id;
-CREATE SEQUENCE chat.response_id;
 CREATE TABLE IF NOT EXISTS chat.response
 (
     response_id CHAR(36) PRIMARY KEY ,
