@@ -4,21 +4,20 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Dog {
-    BreefOfDog breefOfDog;
+    BreedOfDog breedOfDog;
     Birthday birthday;
     DogName dogName;
 
-    @Deprecated
     Dog(){}
 
-    public Dog(BreefOfDog breefOfDog, Birthday birthday, DogName dogName) {
-        this.breefOfDog = breefOfDog;
+    public Dog(BreedOfDog breedOfDog, Birthday birthday, DogName dogName) {
+        this.breedOfDog = breedOfDog;
         this.birthday = birthday;
         this.dogName = dogName;
     }
 
-    public BreefOfDog breefOfDog() {
-        return breefOfDog;
+    public BreedOfDog breedOfDog() {
+        return breedOfDog;
     }
 
     public Birthday birthday() {
@@ -30,7 +29,7 @@ public class Dog {
     }
 
     public String bark(){
-        return breefOfDog.shout;
+        return breedOfDog.shout;
     }
 
     public int age(){
@@ -38,7 +37,7 @@ public class Dog {
     }
 
     public int averageLifeYear(){
-        return Math.toIntExact(breefOfDog.averageLifeExpectancyDays);
+        return Math.toIntExact(breedOfDog.averageLifeExpectancyDays);
     }
 
     public String estimatedLife(){
@@ -47,13 +46,13 @@ public class Dog {
     }
 
     private long estimatedLifeDays(){
-       return breefOfDog.averageLifeExpectancyDays - birthday.elapsedDays();
+       return breedOfDog.averageLifeExpectancyDays - birthday.elapsedDays();
     }
 
     @Override
     public String toString() {
         return "Dog{" +
-                "breefOfDog=" + breefOfDog +
+                "breedOfDog=" + breedOfDog +
                 ", birthday=" + birthday +
                 ", dogName=" + dogName +
                 '}';

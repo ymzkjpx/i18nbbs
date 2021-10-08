@@ -25,6 +25,10 @@ public class Birthday {
         return ChronoUnit.DAYS.between(value, LocalDate.now());
     }
 
+    public static Birthday today(){
+        return new Birthday(LocalDate.now());
+    }
+
     @Override
     public String toString() {
         return "Birthday{" +

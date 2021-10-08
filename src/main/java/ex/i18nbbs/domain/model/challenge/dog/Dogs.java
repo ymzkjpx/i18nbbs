@@ -8,7 +8,7 @@ import ex.i18nbbs.domain.model.challenge.dog.comparator.DogAgeComparator;
 import ex.i18nbbs.domain.model.challenge.dog.comparator.DogAgeReverseComparator;
 
 public class Dogs {
-    List<Dog> list;
+    List<Dog> list = new ArrayList<>();
 
     @Deprecated
     Dogs(){}
@@ -35,6 +35,11 @@ public class Dogs {
 
     private List<Dog> unmodifiableCopy(){
         return new ArrayList<>(Collections.unmodifiableList(list));
+    }
+
+    public Dogs addDog(){
+        list.add(new Dog());
+        return new Dogs(new ArrayList<>(list));
     }
 
     public List<Dog> asList(){

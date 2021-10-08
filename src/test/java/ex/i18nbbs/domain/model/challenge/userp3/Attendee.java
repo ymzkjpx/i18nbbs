@@ -1,0 +1,24 @@
+package ex.i18nbbs.domain.model.challenge.userp3;
+
+public class Attendee {
+    AttendeeNumber attendeeNumber;
+    AttendeeName attendeeName;
+    UserType userType = UserType.参加者;
+
+    public Attendee(AttendeeNumber attendeeNumber, AttendeeName attendeeName) {
+        this.attendeeNumber = attendeeNumber;
+        this.attendeeName = attendeeName;
+    }
+
+    public AttendeeNumber attendeeNumber() {
+        return attendeeNumber;
+    }
+
+    public AttendeeName attendeeName() {
+        return attendeeName;
+    }
+
+    public UserType userType() {
+        return userType;
+    }
+}
