@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="_parts/meta/head::htmlhead(~{::title})">
+    <meta charset="UTF-8">
+    <title>日時変換検証用</title>
+</head>
+<body>
+
+<header th:replace="_parts/material/header::default"></header>
+
+<main class="container mt-5">
+    <article>
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post" th:object="${dateTimeRequest}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateTimeRequest.value">LocalDateTime</label>
+                    <input class="form-control" th:field="${dateTimeRequest.value}" type="datetime-local">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDateTime" type="submit" value="LocalDateTime -> LocalDateTime">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post" th:object="${dateRequest}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateRequest.value">LocalDate <strong>※This Conversion will fail.</strong></label>
+                    <input class="form-control" th:field="${dateRequest.value}" type="datetime-local">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit" value="LocalDateTime -> LocalDate">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post" th:object="${dateRequest}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateRequest.value">LocalDate</label>
+                    <input class="form-control" th:field="${dateRequest.value}" type="date">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit" value="LocalDate -> LocalDate">
+                </div>
+            </section>
+        </form>
+    </article>
+
+</main>
+
+<footer th:replace="_parts/material/footer :: default"></footer>
+
+</body>
+</html>
