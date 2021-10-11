@@ -13,20 +13,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Date;
 
 import ex.i18nbbs.domain.model.challenge.datetime.DateRequest;
+import ex.i18nbbs.domain.model.challenge.datetime.DateRequestWithCarryover;
 import ex.i18nbbs.domain.model.challenge.datetime.DateTimeRequest;
+import ex.i18nbbs.domain.model.challenge.datetime.DateTimeRequestWithCarryover;
 
 @Controller
 @RequestMapping("datetime")
 public class DateTimeController {
 
     @ModelAttribute
-    DateTimeRequest dateTimeRequest(){
+    DateTimeRequest dateTimeRequest() {
         return DateTimeRequest.empty();
     }
 
     @ModelAttribute
-    DateRequest dateRequest(){
+    DateRequest dateRequest() {
         return DateRequest.empty();
+    }
+
+    @ModelAttribute
+    DateRequestWithCarryover dateRequestWithCarryover() {
+        return DateRequestWithCarryover.empty();
+    }
+
+    @ModelAttribute
+    DateTimeRequestWithCarryover dateTimeRequestWithCarryover() {
+        return DateTimeRequestWithCarryover.empty();
     }
 
     @GetMapping
@@ -47,6 +59,41 @@ public class DateTimeController {
                 BindingResult bindingResult,
                 Model model) {
         System.out.println(dateRequest);
+        return "redirect:/datetime";
+    }
+
+    @PostMapping(params = "toLocalDateTimeByText")
+    String toLocalDateTimeByText(@ModelAttribute("dateTimeRequest") DateTimeRequest dateTimeRequest,
+                                 BindingResult bindingResult,
+                                 Model model) {
+        System.out.println(dateTimeRequest);
+        return "redirect:/datetime";
+    }
+
+    @PostMapping(params = "toLocalDateByText")
+    String toLocalDateByText(@ModelAttribute("dateRequest") DateRequest dateRequest,
+                             BindingResult bindingResult,
+                             Model model) {
+        System.out.println(dateRequest);
+        return "redirect:/datetime";
+    }
+
+    @PostMapping(params = "toLocalDateByTextWithTime")
+    String toLocalDateByTextWithTime(
+            @ModelAttribute("DateRequestWithCarryover") DateRequestWithCarryover dateRequestWithCarryover,
+            BindingResult bindingResult,
+            Model model) {
+        System.out.println(dateRequestWithCarryover);
+        return "redirect:/datetime";
+    }
+
+    @PostMapping(params = "doubleBind")
+    String doubleBind(
+            @ModelAttribute("DateRequestWithCarryover") DateRequestWithCarryover dateRequestWithCarryover,
+            @ModelAttribute("dateTimeRequestWithCarryover") DateTimeRequestWithCarryover dateTimeRequestWithCarryover,
+            BindingResult bindingResult,
+            Model model) {
+        System.out.println("" + dateRequestWithCarryover + dateTimeRequestWithCarryover);
         return "redirect:/datetime";
     }
 

@@ -17,7 +17,8 @@
                     <input class="form-control" th:field="${dateTimeRequest.value}" type="datetime-local">
                 </ul>
                 <div class="d-grid gap-2 col-10 mx-auto my-1">
-                    <input class="btn btn-primary btn-lg" name="toLocalDateTime" type="submit" value="LocalDateTime -> LocalDateTime">
+                    <input class="btn btn-primary btn-lg" name="toLocalDateTime" type="submit"
+                           value="LocalDateTime -> LocalDateTime">
                 </div>
             </section>
         </form>
@@ -31,7 +32,8 @@
                     <input class="form-control" th:field="${dateRequest.value}" type="datetime-local">
                 </ul>
                 <div class="d-grid gap-2 col-10 mx-auto my-1">
-                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit" value="LocalDateTime -> LocalDate">
+                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit"
+                           value="LocalDateTime -> LocalDate">
                 </div>
             </section>
         </form>
@@ -45,7 +47,77 @@
                     <input class="form-control" th:field="${dateRequest.value}" type="date">
                 </ul>
                 <div class="d-grid gap-2 col-10 mx-auto my-1">
-                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit" value="LocalDate -> LocalDate">
+                    <input class="btn btn-primary btn-lg" name="toLocalDate" type="submit"
+                           value="LocalDate -> LocalDate">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post" th:object="${dateTimeRequest}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateTimeRequest.value">LocalDateTime(as Text)</label>
+                    <input class="form-control" placeholder="yyyy-MM-dd HH:mm" th:field="${dateTimeRequest.value}"
+                           type="text">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDateTimeByText" type="submit"
+                           value="Text -> LocalDateTime">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post" th:object="${dateRequest}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateRequest.value">LocalDate(as Text)</label>
+                    <input class="form-control" placeholder="yyyy-MM-dd" th:field="${dateRequest.value}" type="text">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDateByText" type="submit"
+                           value="Text -> LocalDate">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post"
+              th:object="${dateRequestWithCarryover}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateRequestWithCarryover.value">Convert LocalDateTimeAsText to LocalDate</label>
+                    <input class="form-control" placeholder="yyyy-MM-dd HH:mm"
+                           th:field="${dateRequestWithCarryover.value}"
+                           type="text">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="toLocalDateByTextWithTime" type="submit"
+                           value="LocalDateTime as Text -> LocalDate">
+                </div>
+            </section>
+        </form>
+    </article>
+
+    <article class="my-5">
+        <form action="#" method="post" th:action="@{/datetime}" th:method="post"
+              th:object="${dateTimeRequestWithCarryover}">
+            <section class="d-flex flex-column">
+                <ul class="list-inline-item">
+                    <label th:for="dateTimeRequestWithCarryover.value">LocalDateTime and LocalDate. Double bind</label>
+                    <input class="form-control" placeholder="yyyy-MM-dd HH:mm"
+                           th:field="${dateTimeRequestWithCarryover.value}" type="text">
+                    <input class="form-control" hidden
+                           th:name="${dateRequestWithCarryover.value}"
+                           th:value="${dateTimeRequestWithCarryover.value}" type="text">
+                </ul>
+                <div class="d-grid gap-2 col-10 mx-auto my-1">
+                    <input class="btn btn-primary btn-lg" name="doubleBind" type="submit"
+                           value="LocalDateTimeAsText -> LocalDate, LocalDateTime">
                 </div>
             </section>
         </form>
